@@ -1,60 +1,53 @@
-# ASAKO
+# ASAKO | Career & Learning Platform
 
-ASAKO is a career and learning platform that connects learners, employers, education partners, workshop providers, and consumers. It provides a public landing page and authenticated portals for role-specific workflows.
+**Connecting Learners, Employers, Institutions, and Opportunities.**
 
-The application is a React and TypeScript single-page app served by an Express API. In development, Express hosts Vite middleware; in production, it serves the built client from `dist/`.
+ASAKO is a career and learning platform designed to bring students, companies, educational institutions, workshop providers, and consumers together in one ecosystem.
 
-## Contents
+The platform provides a public landing page and dedicated, role-based portals with workflows for opportunities, applications, workshops, marketplace listings, and administration.
 
-- [Features](#features)
-- [Technology](#technology)
-- [Project structure](#project-structure)
-- [Requirements](#requirements)
-- [Run locally](#run-locally)
-- [Local demo accounts](#local-demo-accounts)
-- [Commands](#commands)
-- [Application flow](#application-flow)
-- [Configuration](#configuration)
-- [Data and deployment notes](#data-and-deployment-notes)
-- [Further documentation](#further-documentation)
+---
 
-## Features
+## ✨ Features
 
-- Public guest landing page with pathway information and FAQs.
-- Sign-in and registration for student, company, institute, workshop-provider, and consumer accounts.
-- Role-specific dashboards and workflows.
-- Opportunity listings, applications, and saved opportunities.
-- Workshop listings and registrations.
-- Marketplace listings and enquiries.
-- Administrative user, verification, and listing-management screens.
-- Authenticated resume/file access.
+- **Public Landing Page:** Explore platform pathways, information, and FAQs without signing in.
+- **Multi-Role Authentication:** Registration and sign-in for students, companies, institutes, workshop providers, and consumers.
+- **Role-Based Dashboards:** Dedicated dashboards and workflows for each account type.
+- **Opportunity Management:** Browse opportunities, submit applications, and save listings.
+- **Workshop Management:** Explore workshops and register for sessions.
+- **Marketplace:** Browse listings and submit enquiries.
+- **Admin Dashboard:** Manage users, verifications, and platform listings.
+- **File Management:** Authenticated resume and file access.
+- **Responsive Interface:** Modern React-based user interface.
 
-Guests can view the landing page. Portal features require signing in.
+## 🛠️ Technology Stack
 
-## Technology
+| Layer | Technology |
+|---|---|
+| Frontend | React 19, TypeScript |
+| Build Tool | Vite 8 |
+| Styling | Tailwind CSS 4 |
+| Backend | Node.js, Express 4 |
+| Authentication | JWT, bcrypt |
+| Database | JSON-file persistence |
+| Package Manager | npm |
 
-- React 19 and TypeScript
-- Vite 8
-- Express 4 and Node.js
-- Tailwind CSS 4
-- JSON-file persistence for application records
-- JWT-based authentication and bcrypt password hashing
-
-## Project structure
+## 📁 Project Structure
 
 ```text
 asako/
 ├── data/
-│   └── asako_db.json                 # Local application database (created at runtime)
-├── public/                           # Static assets served as-is
+│   └── asako_db.json
+├── public/
+├── uploads/
 ├── server/
 │   ├── db/
-│   │   ├── database.ts               # Data types, initialization, persistence, and queries
-│   │   └── schema.sql                # SQL schema/reference
+│   │   ├── database.ts
+│   │   └── schema.sql
 │   ├── lib/
-│   │   └── serializers.ts            # API response serializers
+│   │   └── serializers.ts
 │   ├── middleware/
-│   │   └── auth.ts                   # Authentication and role checks
+│   │   └── auth.ts
 │   └── routes/
 │       ├── admin.routes.ts
 │       ├── auth.routes.ts
@@ -71,73 +64,86 @@ asako/
 ├── src/
 │   ├── components/
 │   │   ├── screens/
-│   │   │   ├── GuestLandingScreen.tsx
-│   │   │   ├── HomeScreen.tsx
-│   │   │   ├── PlatformScreen.tsx
-│   │   │   ├── AboutScreen.tsx
-│   │   │   ├── ContactScreen.tsx
-│   │   │   ├── OpportunitiesScreen.tsx
-│   │   │   ├── WorkshopsScreen.tsx
-│   │   │   ├── MarketplaceScreen.tsx
-│   │   │   ├── StudentDashboard.tsx
-│   │   │   ├── CompanyDashboard.tsx
-│   │   │   ├── InstituteDashboard.tsx
-│   │   │   ├── WorkshopProviderDashboard.tsx
-│   │   │   ├── ConsumerDashboard.tsx
-│   │   │   └── AdminDashboard.tsx
-│   │   ├── AsakoHero.tsx             # Animated landing-page hero
+│   │   ├── AsakoHero.tsx
 │   │   ├── AsakoLogo.tsx
-│   │   ├── AuthModal.tsx             # Sign-in and registration
-│   │   ├── Header.tsx                # Main navigation
+│   │   ├── AuthModal.tsx
+│   │   ├── Header.tsx
 │   │   ├── Footer.tsx
 │   │   ├── OpportunityModal.tsx
 │   │   └── WorkshopModal.tsx
 │   ├── data/
-│   │   └── workshopVisuals.ts        # Workshop category images and visual helpers
 │   ├── services/
-│   │   └── api.ts                    # Typed frontend client for the API
 │   ├── types/
-│   │   └── asako.ts                  # Shared frontend domain types
-│   ├── App.tsx                       # Session, navigation, and screen composition
-│   ├── index.css                     # Global styles and theme
-│   └── main.tsx                      # React entry point
-├── uploads/                          # Locally stored uploaded files
-├── .env.example                      # Environment-variable template
-├── API_DOCUMENTATION.md              # API endpoint reference
-├── DEPLOYMENT.md                     # Deployment and storage guidance
-├── index.html                        # Client HTML entry point
-├── package.json                      # Dependencies and npm scripts
-├── server.ts                         # Express entry point
-├── tsconfig.json                     # TypeScript configuration
-└── vite.config.ts                    # Vite, React, and Tailwind configuration
+│   ├── App.tsx
+│   ├── index.css
+│   └── main.tsx
+├── .env.example
+├── .gitignore
+├── API_DOCUMENTATION.md
+├── DEPLOYMENT.md
+├── index.html
+├── package.json
+├── package-lock.json
+├── server.ts
+├── tsconfig.json
+└── vite.config.ts
 ```
 
-`node_modules/` contains installed dependencies and `dist/` is generated by the production build. Neither is source code. The database and uploads directories contain runtime data; do not delete or publish them if they contain data you need to keep.
+## ⚙️ Requirements
 
-## Requirements
+Make sure you have the following installed:
 
 - Node.js 20 or newer
 - npm
 
-## Run locally
+## 🚀 Getting Started
 
-From the project directory:
+### 1. Clone the Repository
+
+```bash
+git clone https://github.com/Advaitam07/Asako-Platform.git
+cd Asako-Platform
+```
+
+### 2. Install Dependencies
+
+```bash
+npm install
+```
+
+### 3. Configure Environment Variables
+
+Create your local environment file:
 
 ```powershell
-npm install
 Copy-Item .env.example .env
+```
+
+Update `.env` with the required configuration. Set a unique `JWT_SECRET` for local development.
+
+### 4. Start the Development Server
+
+```bash
 npm run dev
 ```
 
-If `.env` already exists, keep it and update its values rather than overwriting it. Set `JWT_SECRET` to a unique random value for local use. The combined Express/Vite server starts at `http://localhost:3000`.
+The application will be available at:
 
-Check that the API is responding at `http://localhost:3000/api/health`.
+**http://localhost:3000**
 
-The first development startup creates `data/asako_db.json` and seeds local demo accounts if that file does not exist. Existing database files are loaded rather than replaced. Uploaded files are written to `uploads/`.
+### 5. Check API Health
 
-## Local demo accounts
+Open the following endpoint:
 
-These accounts are seeded only when a new **development** database is created:
+```text
+http://localhost:3000/api/health
+```
+
+The first development startup creates the local JSON database and seeds demo accounts if the database file does not already exist.
+
+## 🔐 Local Demo Accounts
+
+The following accounts are seeded only when a new development database is created.
 
 | Portal | Email | Password |
 |---|---|---|
@@ -145,70 +151,108 @@ These accounts are seeded only when a new **development** database is created:
 | Student | `alex.rivera@asako.student` | `StudentPass2026!` |
 | Company | `sarah.vance@aethel.com` | `CompanyPass2026!` |
 | Institute | `marcus.weber@zurichtech.edu` | `InstitutePass2026!` |
-| Workshop provider | `elena@monolithdesign.org` | `ProviderPass2026!` |
+| Workshop Provider | `elena@monolithdesign.org` | `ProviderPass2026!` |
 | Consumer | `jordan.lee@domain.com` | `ConsumerPass2026!` |
 
-These are public development demo credentials, not private or production credentials. Demo accounts are blocked in production unless `ASAKO_ALLOW_DEMO_ACCOUNTS=true` is explicitly set. Do not enable them on a public production deployment.
+**Note:** These are public development demo credentials. They are not production credentials. Demo accounts are blocked in production unless explicitly enabled.
 
-## Commands
+## 📜 Available Commands
 
 | Command | Description |
 |---|---|
-| `npm run dev` | Start Express with Vite development middleware. |
-| `npm run lint` | Run the TypeScript check (`tsc --noEmit`). |
-| `npm run build` | Create the production client build in `dist/`. |
-| `npm start` | Start Express; set `NODE_ENV=production` to serve the built client. |
-| `npm run preview` | Start Vite's static preview server for the client build. |
+| `npm install` | Install project dependencies |
+| `npm run dev` | Start the development server |
+| `npm run lint` | Run the TypeScript check |
+| `npm run build` | Build the production frontend |
+| `npm start` | Start the Express server |
+| `npm run preview` | Preview the Vite frontend build |
 
-Before a production start, run `npm run build`. `npm start` alone does not build the client.
+## 🏗️ Application Architecture
 
-## Application flow
+ASAKO uses a React frontend connected to an Express backend.
 
 1. `src/main.tsx` mounts the React application.
-2. `src/App.tsx` checks for an existing session and selects the public page or the requested authenticated screen.
-3. Components under `src/components/` render shared UI, authentication, and role-specific screens.
-4. `src/services/api.ts` sends requests to the Express API under `/api`.
-5. `server.ts` configures Express, middleware, health checks, static files, and API routes.
-6. Route handlers under `server/routes/` validate requests and apply authentication/authorization.
-7. `server/db/database.ts` reads and writes records to the configured JSON database file.
+2. `src/App.tsx` manages session state, navigation, and screen composition.
+3. Components inside `src/components/` render the interface and role-specific dashboards.
+4. `src/services/api.ts` handles frontend API communication.
+5. `server.ts` configures Express, middleware, health checks, and API routes.
+6. `server/routes/` contains the application API endpoints.
+7. `server/db/database.ts` handles JSON database initialization, persistence, and queries.
 
-## Configuration
+In development, Express runs with Vite middleware. In production, Express serves the compiled frontend from the `dist/` directory.
 
-Copy `.env.example` to `.env` and set values appropriate for the environment.
+## 🔧 Environment Configuration
+
+The application uses environment variables for configuration.
 
 | Variable | Description |
 |---|---|
-| `JWT_SECRET` | Required in production. Use a unique random secret of at least 32 characters. |
-| `PORT` | HTTP port; defaults to `3000`. |
-| `NODE_ENV` | Set to `production` to serve built assets and apply production behavior. |
-| `APP_URL` | Primary allowed browser origin, such as `https://asako.example`. |
-| `CORS_ORIGINS` | Optional comma-separated list of additional allowed browser origins. |
-| `ASAKO_DB_FILE` | Optional JSON database file path. Defaults to `data/asako_db.json` under the process working directory. |
-| `ASAKO_ADMIN_EMAIL` | Email for the first administrator when initializing a new production database. |
-| `ASAKO_ADMIN_PASSWORD` | Password for the first administrator; required on first production initialization and must be at least 12 characters. |
-| `ASAKO_ALLOW_DEMO_ACCOUNTS` | Optional; set to `true` only for an intentional production demo. |
+| `JWT_SECRET` | Required production authentication secret, at least 32 characters |
+| `PORT` | Server port, defaults to `3000` |
+| `NODE_ENV` | Application environment |
+| `APP_URL` | Primary application URL |
+| `CORS_ORIGINS` | Additional allowed browser origins |
+| `ASAKO_DB_FILE` | Optional JSON database file path |
+| `ASAKO_ADMIN_EMAIL` | Initial production administrator email |
+| `ASAKO_ADMIN_PASSWORD` | Initial production administrator password |
+| `ASAKO_ALLOW_DEMO_ACCOUNTS` | Optional demo-account configuration |
 
-Do not commit `.env` or put production secrets in this README. Use the hosting provider's secret/environment-variable manager.
+**Security:** Never commit `.env` files, production secrets, private credentials, or sensitive user data to GitHub.
 
-## Data and deployment notes
+## ☁️ Deployment & Storage Notes
 
-The current database is a local JSON file, and uploaded files are stored under `uploads/`. Both require persistent writable storage. This implementation is intended for a single server process; it does not provide multi-process locking or multi-instance coordination. Do not deploy multiple instances against the same JSON file or use ephemeral storage for user data.
+The current implementation uses:
 
-Stateless/serverless platforms (including a default Vercel deployment) do not provide the persistent local disk this storage design requires. Before deploying there, replace or adapt persistence and uploads for managed database and object storage services.
+- A local JSON file for application records.
+- Local filesystem storage for uploaded files.
+- A single Express server process.
 
-For production, configure persistent storage, set `NODE_ENV=production`, `JWT_SECRET`, `APP_URL`, and required CORS origins, then build and start the application:
+Both the database and uploaded files require persistent writable storage.
 
-```powershell
+The application does not currently provide multi-process database locking or multi-instance coordination. Do not run multiple instances against the same JSON database file.
+
+Default serverless deployments, including Vercel, do not provide the persistent local filesystem required by this architecture.
+
+Before using a serverless platform, adapt the application to use a managed database and object storage for uploaded files.
+
+For production deployment:
+
+1. Configure persistent storage.
+2. Set `NODE_ENV=production`.
+3. Configure a unique `JWT_SECRET`.
+4. Set `APP_URL` and required CORS origins.
+5. Configure the initial administrator credentials for a new database.
+6. Run the production build.
+7. Start the Express server.
+8. Back up the database and uploads regularly.
+
+```bash
 npm run lint
 npm run build
 npm start
 ```
 
-For a new production database, set `ASAKO_ADMIN_EMAIL` and `ASAKO_ADMIN_PASSWORD` before starting. The server creates the initial administrator only when the database file does not already exist. Back up the database and uploads together, and test restoring them.
+See [DEPLOYMENT.md](./DEPLOYMENT.md) for additional deployment guidance.
 
-## Further documentation
+## 📚 Documentation
 
-- [Deployment guide](./DEPLOYMENT.md)
-- [REST API documentation](./API_DOCUMENTATION.md)
-#   A s a k o - P l a t f o r m  
- 
+- [Deployment Guide](./DEPLOYMENT.md)
+- [REST API Documentation](./API_DOCUMENTATION.md)
+
+## 🔒 Data Safety
+
+- Do not publish `.env` files.
+- Do not commit private production credentials.
+- Do not publish real user database records.
+- Keep uploaded user files private.
+- Back up persistent application data before making changes.
+
+## 📌 Project Status
+
+ASAKO is an evolving career and learning platform. Features and workflows may continue to improve as development progresses.
+
+---
+
+**Built with React, TypeScript, Node.js, and Express.**
+
+*ASAKO | Bringing Learning, Careers, and Opportunities Together.*
