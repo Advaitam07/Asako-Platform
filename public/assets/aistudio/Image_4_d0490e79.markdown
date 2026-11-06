@@ -1,0 +1,207 @@
+---
+name: ASAKO
+colors:
+  surface: '#f7f9fc'
+  surface-dim: '#d8dadd'
+  surface-bright: '#f7f9fc'
+  surface-container-lowest: '#ffffff'
+  surface-container-low: '#f2f4f7'
+  surface-container: '#eceef1'
+  surface-container-high: '#e6e8eb'
+  surface-container-highest: '#e0e3e6'
+  on-surface: '#191c1e'
+  on-surface-variant: '#44474e'
+  inverse-surface: '#2d3133'
+  inverse-on-surface: '#eff1f4'
+  outline: '#75777f'
+  outline-variant: '#c5c6cf'
+  surface-tint: '#4d5f81'
+  primary: '#000d25'
+  on-primary: '#ffffff'
+  primary-container: '#0f2342'
+  on-primary-container: '#798baf'
+  inverse-primary: '#b4c7ee'
+  secondary: '#3f5e95'
+  on-secondary: '#ffffff'
+  secondary-container: '#a2c1ff'
+  on-secondary-container: '#2e4e84'
+  tertiary: '#140c00'
+  on-tertiary: '#ffffff'
+  tertiary-container: '#2f2100'
+  on-tertiary-container: '#a98533'
+  error: '#ba1a1a'
+  on-error: '#ffffff'
+  error-container: '#ffdad6'
+  on-error-container: '#93000a'
+  primary-fixed: '#d7e3ff'
+  primary-fixed-dim: '#b4c7ee'
+  on-primary-fixed: '#061b3a'
+  on-primary-fixed-variant: '#354768'
+  secondary-fixed: '#d7e2ff'
+  secondary-fixed-dim: '#abc7ff'
+  on-secondary-fixed: '#001b3f'
+  on-secondary-fixed-variant: '#25467c'
+  tertiary-fixed: '#ffdf9e'
+  tertiary-fixed-dim: '#eac169'
+  on-tertiary-fixed: '#261a00'
+  on-tertiary-fixed-variant: '#5b4300'
+  background: '#f7f9fc'
+  on-background: '#191c1e'
+  surface-variant: '#e0e3e6'
+typography:
+  display-hero:
+    fontFamily: Syne
+    fontSize: 64px
+    fontWeight: '800'
+    lineHeight: 72px
+    letterSpacing: -0.03em
+  display-hero-mobile:
+    fontFamily: Syne
+    fontSize: 38px
+    fontWeight: '800'
+    lineHeight: 44px
+    letterSpacing: -0.02em
+  headline-lg:
+    fontFamily: Syne
+    fontSize: 40px
+    fontWeight: '700'
+    lineHeight: 48px
+    letterSpacing: -0.02em
+  headline-lg-mobile:
+    fontFamily: Syne
+    fontSize: 28px
+    fontWeight: '700'
+    lineHeight: 34px
+    letterSpacing: -0.01em
+  headline-md:
+    fontFamily: Syne
+    fontSize: 24px
+    fontWeight: '600'
+    lineHeight: 32px
+    letterSpacing: -0.01em
+  headline-sm:
+    fontFamily: Syne
+    fontSize: 18px
+    fontWeight: '600'
+    lineHeight: 24px
+    letterSpacing: '0'
+  body-lg:
+    fontFamily: Geist
+    fontSize: 18px
+    fontWeight: '400'
+    lineHeight: 28px
+    letterSpacing: -0.01em
+  body-md:
+    fontFamily: Geist
+    fontSize: 15px
+    fontWeight: '400'
+    lineHeight: 24px
+    letterSpacing: '0'
+  body-sm:
+    fontFamily: Geist
+    fontSize: 13px
+    fontWeight: '400'
+    lineHeight: 20px
+    letterSpacing: '0'
+  label-caps:
+    fontFamily: Geist
+    fontSize: 11px
+    fontWeight: '600'
+    lineHeight: 14px
+    letterSpacing: 0.12em
+  label-technical:
+    fontFamily: Geist
+    fontSize: 12px
+    fontWeight: '500'
+    lineHeight: 16px
+    letterSpacing: 0.02em
+spacing:
+  gutter: 1.5rem
+  gutter-desktop: 2.5rem
+  margin: 1.5rem
+  margin-desktop: 4rem
+  space-xs: 0.25rem
+  space-sm: 0.5rem
+  space-md: 1rem
+  space-lg: 1.5rem
+  space-xl: 2.5rem
+  space-2xl: 4rem
+  space-3xl: 6rem
+---
+
+## Brand & Style
+
+This design system establishes an avant-garde architectural minimalism engineered for an ultra-premium global technology platform. Drawing inspiration from precision engineering and modernist structural architecture, the aesthetic marries razor-sharp planar geometries with unapologetic technical restraint. 
+
+The visual tone conveys sovereign authority, absolute clarity, and institutional permanence. Designed for visionary enterprises, institutional partners, and technical leaders, the UI eliminates decorative excess in favor of calibrated typographic scale, architectural gridlines, and monolithic spatial composition. Rather than relying on clichéd visual tropes of global scale, authority is asserted through deliberate negative space, hyper-refined hairline delineations, and sculptural typographic forms.
+
+## Colors
+
+The palette relies on high-contrast architectural value steps anchored by deep structural navy and balanced with gallery-grade pure light surfaces.
+
+- **Primary (`#0F2342`)**: Monolithic Slate Navy. Used for dominant typographic hierarchy, solid primary interactive states, and foundational structures.
+- **Secondary (`#173B70`)**: Structural Deep Navy. Employed for elevated tonal containers, focused system states, and secondary interactive framing.
+- **Tertiary (`#C9A34E`)**: Metallic Specular Gold. Reserved strictly for precise accents, authoritative verification indicators, micro-badges, and refined focal highlights. It must never overwhelm large surfaces.
+- **Neutral Surface (`#F5F7FA`)**: Architectural Light Grey. Used for grounded background fills, modular canvas panels, and secondary card planes against the pure white canvas (`#FFFFFF`).
+- **Divider & Border (`#E2E8F0`)**: Hairline Slate. Defines the razor-sharp structural matrix, providing tactile grid demarcations without visual weight.
+- **Muted Text (`#475569`)**: Technical Slate. Deployed for secondary metadata, captions, technical labels, and supporting architectural specs.
+
+## Typography
+
+The typographic hierarchy creates tension between the sculptural geometry of Syne and the hyper-rational engineering precision of Geist.
+
+- **Syne** commands all primary headings, titles, and brand focal anchors. Its wide, unexpected geometric terminals and architectural cutouts establish structural drama. Headlines should favor tight letter tracking to emphasize planar compactness.
+- **Geist** provides maximum technical clarity for body copy, data interfaces, metrics, and navigation elements. Its neutral, monospace-adjacent discipline counterbalances the expressive nature of the display font.
+- **Uppercase Labels**: Technical indicators, metadata tags, and section headers employ `label-caps` set in uppercase Geist with expanded tracking (`0.12em`) to echo architectural drafting specifications.
+
+## Layout & Spacing
+
+Layouts follow a modular, rectilinear discipline organized around a strict 12-column structural grid system.
+
+- **Grid Architecture**:
+  - **Desktop (1200px+)**: 12 columns with `gutter-desktop` (2.5rem / 40px) and global outer boundary `margin-desktop` (4rem / 64px). Elements align strictly to column coordinates; full-bleed components are bisected by crisp 1px borders along grid tracks.
+  - **Tablet (768px - 1199px)**: 8 columns with 1.5rem gutters and 2rem outer margins.
+  - **Mobile (< 768px)**: 4 columns with 1rem gutters and 1.5rem margins. Stack all multi-column structural groups into sharp vertical stacks.
+- **Rhythm**: Component interiors prioritize deliberate vertical breathing room. Whitespace is structural rather than purely empty; large section intervals (`space-2xl`, `space-3xl`) isolate ideas with monumental weight.
+
+## Elevation & Depth
+
+In keeping with avant-garde architectural minimalism, visual hierarchy is defined through planar layering and hairline intersections rather than blurred cast shadows.
+
+- **Planar Stacking**: Surfaces sit directly on the baseline canvas or rest adjacent separated by 1px solid dividers (`#E2E8F0`). Higher-priority content achieves prominence through surface contrast: transitioning from pure `#FFFFFF` to light architectural grey (`#F5F7FA`) or deep monolithic navy (`#0F2342`).
+- **Low-Contrast Outlines & Orthogonal Grids**: Elevation is denoted by solid, perimeter hairline strokes (`1px solid #E2E8F0`). No drop shadows are permitted on standard structural cards.
+- **Architectural Micro-Elevation**: For floating contextual menus, popovers, and critical modals, use crisp, directional offset shadows without heavy dispersion:
+  - `box-shadow: 0 4px 0 0 #0F2342, 0 12px 24px -4px rgba(15, 35, 66, 0.08);`
+  - Floating items maintain sharp perimeters encased in a 1px border (`#0F2342` or `#E2E8F0`).
+
+## Shapes
+
+The shape system is strictly non-rounded (`roundedness: 0`). Every surface, button, tag, input, card, and modal terminates at a razor-sharp 90-degree right angle (0px border-radius). 
+
+This zero-radius standard reinforces the architectural blueprint aesthetic, evoking precision-cut materials and technical rigor. Diagonal slices, rounded corners, and pill shapes are prohibited. Visual softness is achieved solely through spacious typography and subtle tonal transitions, never through rounded geometry.
+
+## Components
+
+### Buttons
+- **Primary**: Solid Monolithic Navy (`#0F2342`) background, pure white (`#FFFFFF`) text, 0px border-radius. Padding: `0.875rem 2rem`. Text style: `label-caps`. Hover: Background shifts to `#173B70` with an accent bottom border of 2px `#C9A34E`. Active: Scale remains 1:1; background deepens to `#0B1A31`.
+- **Secondary (Structural Outline)**: Transparent background, 1px solid `#0F2342` border, `#0F2342` text. Hover: Inverts to `#0F2342` fill with white text.
+- **Accent (Gold Tier)**: Solid Metallic Gold (`#C9A34E`) background, `#0F2342` text. Used exclusively for primary enterprise conversion points.
+
+### Cards & Modular Panels
+- **Structure**: Constructed from 0px rectangular surfaces using `#FFFFFF` or `#F5F7FA`. 
+- **Borders**: Framed with 1px solid `#E2E8F0`. Hovering an interactive card transitions the outer border to `#0F2342` or highlights an edge with a 1px `#C9A34E` top indicator.
+- **Arrangement**: Grouped cards must butt against each other sharing borders (collapsed cell architecture) rather than floating as separated rounded islands.
+
+### Input Fields & Controls
+- **Inputs**: Rectangular boxes with `#FFFFFF` background, 1px solid `#E2E8F0` border, `body-md` typography. Padding: `0.75rem 1rem`. Focus state: Hairline 1px border becomes `#0F2342` with an inner 1px inset accent in `#C9A34E`.
+- **Checkboxes & Radios**: Strictly square (0px radius). Unchecked: 1px border in `#E2E8F0` with `#FFFFFF` fill. Checked: Solid `#0F2342` fill with a sharp, geometric checkmark or inner square accent in `#C9A34E`.
+
+### Chips & Badges
+- **Status Badges**: Zero-radius rectangular tags. Background `#F5F7FA`, 1px solid `#E2E8F0` border, `label-caps` typography in `#475569`.
+- **Gold Verification Badges**: Background `rgba(201, 163, 78, 0.08)`, 1px solid `#C9A34E`, text `#0F2342` with an inline gold dot indicator (`#C9A34E`).
+
+### Lists & Data Displays
+- Monospaced numeric counters aligned along razor-thin horizontal rules (`#E2E8F0`). List items feature generous vertical padding (`space-md`) with metadata rendered in `label-technical` (`#475569`).
+
+### Architectural Spec Dividers
+- Horizontal rules and vertical dividing columns are executed strictly as 1px solid `#E2E8F0` vectors, serving as the skeletal infrastructure of the page.

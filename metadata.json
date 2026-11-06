@@ -1,0 +1,6 @@
+{
+  "name": "ASAKO",
+  "description": "Unified digital platform connecting Students, Educational Institutes, Companies, Workshop Providers, and Consumers to INNOVATE, BUILD, and GROW.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
