@@ -1,4 +1,5 @@
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 # ASAKO | Career & Learning Platform
 
 **Connecting Learners, Employers, Institutions, and Opportunities.**
@@ -258,6 +259,8 @@ ASAKO is an evolving career and learning platform. Features and workflows may co
 
 *ASAKO | Bringing Learning, Careers, and Opportunities Together.*
 =======
+=======
+>>>>>>> Stashed changes
 # ASAKO | Career & Learning Platform
 
 **Connecting Learners, Employers, Institutions, and Opportunities.**
@@ -521,5 +524,9 @@ ASAKO is an evolving career and learning platform. Features and workflows may co
 
 **Built with React, TypeScript, Node.js, and Express.**
 
+<<<<<<< Updated upstream
+*ASAKO | Bringing Learning, Careers, and Opportunities Together.*
+>>>>>>> Stashed changes
+=======
 *ASAKO | Bringing Learning, Careers, and Opportunities Together.*
 >>>>>>> Stashed changes
