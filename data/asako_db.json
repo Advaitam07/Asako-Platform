@@ -1,0 +1,814 @@
+{
+  "users": [
+    {
+      "id": "usr-provider-d865a667-f2b4-4b24-8be9-8f071709318e",
+      "email": "askpr@gmail.com",
+      "password_hash": "$2b$10$EK46Q5dSLQt54yzkKPqfGul3EETlABFniss3de/m34Jfl1S7MIQi6",
+      "role": "provider",
+      "status": "active",
+      "is_email_verified": false,
+      "created_at": "2026-11-06T13:53:38.040Z",
+      "updated_at": "2026-11-06T13:53:38.040Z"
+    },
+    {
+      "id": "usr-consumer-04b4f490-10c4-4365-8cd1-199f72276141",
+      "email": "aspr@gmail.com",
+      "password_hash": "$2b$10$Wehs/q3v0xHgeHQuMQZ1Ke59rfZfn2wtbRx2mtOo8LuKa9iaa20MW",
+      "role": "consumer",
+      "status": "active",
+      "is_email_verified": false,
+      "created_at": "2026-11-06T13:53:13.135Z",
+      "updated_at": "2026-11-06T13:53:13.135Z"
+    },
+    {
+      "id": "usr-institute-bca8e735-eba4-4e80-a642-7b67b6fa28f4",
+      "email": "apr@gmail.com",
+      "password_hash": "$2b$10$TtISMShaAvZK.MceFvgoUO5wfl560MJGqY25tY8tzxzn7msRxtS4K",
+      "role": "institute",
+      "status": "active",
+      "is_email_verified": false,
+      "created_at": "2026-11-06T13:52:34.295Z",
+      "updated_at": "2026-11-06T13:52:34.295Z"
+    },
+    {
+      "id": "usr-company-7cbd651d-d9cf-4337-85bc-3b72f2f9dd30",
+      "email": "pr@gmail.com",
+      "password_hash": "$2b$10$07JT/jTlTzUJ2TsneSc4P.DnyeH3CZ66xvSl1uhhMBn5pgNmvV9xq",
+      "role": "company",
+      "status": "active",
+      "is_email_verified": false,
+      "created_at": "2026-11-06T13:51:31.034Z",
+      "updated_at": "2026-11-06T13:51:31.034Z"
+    },
+    {
+      "id": "usr-student-14a0ead1-708e-453a-a9c0-e1d86569dd3c",
+      "email": "adityapradipsharma@gmail.com",
+      "password_hash": "$2b$10$HcQB/FUPT1gCKsbZNu33e.2s.svTqUxWIEz6V3pPQkCnT4.5UcSD2",
+      "role": "student",
+      "status": "active",
+      "is_email_verified": false,
+      "created_at": "2026-11-06T13:50:25.336Z",
+      "updated_at": "2026-11-06T13:50:25.336Z"
+    },
+    {
+      "id": "usr-admin-1",
+      "email": "admin@asako.global",
+      "password_hash": "$2b$10$H4IMhCsOIvC0sC2X/6xN1enQl9bINMgqMvKNw.2NS274NToc187cm",
+      "role": "admin",
+      "status": "active",
+      "is_email_verified": true,
+      "created_at": "2026-11-05T20:36:35.506Z",
+      "updated_at": "2026-11-05T20:36:35.506Z"
+    },
+    {
+      "id": "usr-student-1",
+      "email": "alex.rivera@asako.student",
+      "password_hash": "$2b$10$H4IMhCsOIvC0sC2X/6xN1eJTAGLUUf60XNVSFptCSgmdh4UCxn.nW",
+      "role": "student",
+      "status": "active",
+      "is_email_verified": true,
+      "created_at": "2026-11-05T20:36:35.506Z",
+      "updated_at": "2026-11-05T20:36:35.506Z"
+    },
+    {
+      "id": "usr-company-1",
+      "email": "sarah.vance@aethel.com",
+      "password_hash": "$2b$10$H4IMhCsOIvC0sC2X/6xN1evf0QpVXyNVIMgL9xvRXVWOjnNM4WbHa",
+      "role": "company",
+      "status": "active",
+      "is_email_verified": true,
+      "created_at": "2026-11-05T20:36:35.506Z",
+      "updated_at": "2026-11-05T20:36:35.506Z"
+    },
+    {
+      "id": "usr-institute-1",
+      "email": "marcus.weber@zurichtech.edu",
+      "password_hash": "$2b$10$H4IMhCsOIvC0sC2X/6xN1e7g7KEsxQOGCzu7oD92EJ6ZvUhOFCE/G",
+      "role": "institute",
+      "status": "active",
+      "is_email_verified": true,
+      "created_at": "2026-11-05T20:36:35.506Z",
+      "updated_at": "2026-11-05T20:36:35.506Z"
+    },
+    {
+      "id": "usr-provider-1",
+      "email": "elena@monolithdesign.org",
+      "password_hash": "$2b$10$H4IMhCsOIvC0sC2X/6xN1eIyVwIVH.QW.TEohZ6m5TP1okIprjope",
+      "role": "provider",
+      "status": "active",
+      "is_email_verified": true,
+      "created_at": "2026-11-05T20:36:35.506Z",
+      "updated_at": "2026-11-05T20:36:35.506Z"
+    },
+    {
+      "id": "usr-consumer-1",
+      "email": "jordan.lee@domain.com",
+      "password_hash": "$2b$10$H4IMhCsOIvC0sC2X/6xN1e2Xf05WKKlVhnRVMgNLEQwlt.Nn.eQA6",
+      "role": "consumer",
+      "status": "active",
+      "is_email_verified": true,
+      "created_at": "2026-11-05T20:36:35.506Z",
+      "updated_at": "2026-11-05T20:36:35.506Z"
+    }
+  ],
+  "student_profiles": [
+    {
+      "id": "prof-std-b19b3a33-3796-4c4a-a338-89bb70df6f04",
+      "user_id": "usr-student-14a0ead1-708e-453a-a9c0-e1d86569dd3c",
+      "full_name": "Aditya Pradip Sharma",
+      "headline": "Student & Emerging Technologist",
+      "bio": "",
+      "phone": "",
+      "location": "",
+      "institution": "prmitr",
+      "degree": "",
+      "field_of_study": "",
+      "graduation_year": "",
+      "gpa": "",
+      "skills": [],
+      "resume_url": "",
+      "resume_filename": "",
+      "github_url": "",
+      "linkedin_url": "",
+      "portfolio_url": "",
+      "is_verified": false,
+      "created_at": "2026-11-06T13:50:25.336Z",
+      "updated_at": "2026-11-06T13:50:25.336Z"
+    },
+    {
+      "id": "prof-std-1",
+      "user_id": "usr-student-1",
+      "full_name": "Alex Rivera",
+      "headline": "Distributed Systems & Cloud Computing Researcher",
+      "bio": "Fourth-year undergraduate with a focus on high-throughput microservices, verifiable state machines, and TypeScript/Go development.",
+      "phone": "+41 44 632 11 11",
+      "location": "Zurich, Switzerland",
+      "institution": "Zurich Tech Institute",
+      "degree": "Bachelor of Science",
+      "field_of_study": "Computer Science & Software Systems",
+      "graduation_year": "2027",
+      "gpa": "3.92 / 4.00",
+      "skills": [
+        "TypeScript",
+        "Node.js",
+        "Go",
+        "Distributed Databases",
+        "React",
+        "Docker"
+      ],
+      "resume_url": "/api/files/alex_rivera_cv_2026.pdf",
+      "resume_filename": "alex_rivera_cv_2026.pdf",
+      "github_url": "https://github.com/alexrivera-tech",
+      "linkedin_url": "https://linkedin.com/in/alexrivera",
+      "portfolio_url": "https://alexrivera.dev",
+      "is_verified": true,
+      "created_at": "2026-11-05T20:36:35.506Z",
+      "updated_at": "2026-11-05T20:36:35.506Z"
+    }
+  ],
+  "institute_profiles": [
+    {
+      "id": "prof-inst-353c186b-a0b2-4b3f-a66c-222af2d3b185",
+      "user_id": "usr-institute-bca8e735-eba4-4e80-a642-7b67b6fa28f4",
+      "institute_name": "prmitr",
+      "accreditation_status": "Pending review",
+      "campus_location": "",
+      "website": "",
+      "contact_person": "Aditya Pradip Sharma",
+      "contact_email": "apr@gmail.com",
+      "phone": "",
+      "established_year": "",
+      "student_count": 0,
+      "verification_status": "pending",
+      "created_at": "2026-11-06T13:52:34.295Z",
+      "updated_at": "2026-11-06T13:52:34.295Z"
+    },
+    {
+      "id": "prof-inst-1",
+      "user_id": "usr-institute-1",
+      "institute_name": "Zurich Tech Institute",
+      "accreditation_status": "Swiss National Accreditation Board · Level 1",
+      "campus_location": "Zurich, Switzerland",
+      "website": "https://zurichtech.edu",
+      "contact_person": "Prof. Marcus Weber",
+      "contact_email": "marcus.weber@zurichtech.edu",
+      "phone": "+41 44 632 00 00",
+      "established_year": "1855",
+      "student_count": 24500,
+      "verification_status": "approved",
+      "created_at": "2026-11-05T20:36:35.506Z",
+      "updated_at": "2026-11-05T20:36:35.506Z"
+    }
+  ],
+  "company_profiles": [
+    {
+      "id": "prof-comp-c1e61df2-2d12-4a54-a51c-60b46dafa978",
+      "user_id": "usr-company-7cbd651d-d9cf-4337-85bc-3b72f2f9dd30",
+      "company_name": "prmitr",
+      "industry": "",
+      "company_size": "",
+      "headquarters": "",
+      "website": "",
+      "contact_person": "Aditya Pradip Sharma",
+      "contact_email": "pr@gmail.com",
+      "description": "",
+      "logo_url": "",
+      "verification_status": "pending",
+      "created_at": "2026-11-06T13:51:31.034Z",
+      "updated_at": "2026-11-06T13:51:31.034Z"
+    },
+    {
+      "id": "prof-comp-1",
+      "user_id": "usr-company-1",
+      "company_name": "Aethel Technology Labs",
+      "industry": "Enterprise Software & Cloud Systems",
+      "company_size": "250-500 Employees",
+      "headquarters": "Geneva / Zurich, Switzerland",
+      "website": "https://aethel.technology",
+      "contact_person": "Sarah Vance",
+      "contact_email": "sarah.vance@aethel.com",
+      "description": "Pioneering verifiable high-throughput infrastructure and modern enterprise applications across EMEA.",
+      "logo_url": "",
+      "verification_status": "approved",
+      "created_at": "2026-11-05T20:36:35.506Z",
+      "updated_at": "2026-11-05T20:36:35.506Z"
+    }
+  ],
+  "provider_profiles": [
+    {
+      "id": "prof-prov-e0a3a20a-eab5-4262-9fcc-7fc64f2fc7e3",
+      "user_id": "usr-provider-d865a667-f2b4-4b24-8be9-8f071709318e",
+      "provider_name": "prmitr",
+      "specialization": "",
+      "bio": "",
+      "website": "",
+      "contact_email": "askpr@gmail.com",
+      "phone": "",
+      "accreditation_status": "Pending review",
+      "verification_status": "pending",
+      "created_at": "2026-11-06T13:53:38.040Z",
+      "updated_at": "2026-11-06T13:53:38.040Z"
+    },
+    {
+      "id": "prof-prov-1",
+      "user_id": "usr-provider-1",
+      "provider_name": "Monolith Design Practice",
+      "specialization": "Design Systems & Modern Architecture",
+      "bio": "Leading studio offering masterclasses in design engineering, multi-platform design systems, and product strategy.",
+      "website": "https://monolith.design",
+      "contact_email": "elena@monolithdesign.org",
+      "phone": "+46 8 123 4567",
+      "accreditation_status": "European Design Educators Alliance Certified",
+      "verification_status": "approved",
+      "created_at": "2026-11-05T20:36:35.506Z",
+      "updated_at": "2026-11-05T20:36:35.506Z"
+    }
+  ],
+  "consumer_profiles": [
+    {
+      "id": "prof-cons-4ffcf128-361b-4ed4-a38e-f13ddee661ab",
+      "user_id": "usr-consumer-04b4f490-10c4-4365-8cd1-199f72276141",
+      "full_name": "Aditya Pradip Sharma",
+      "occupation": "",
+      "location": "",
+      "phone": "",
+      "interest_areas": [],
+      "created_at": "2026-11-06T13:53:13.135Z",
+      "updated_at": "2026-11-06T13:53:13.135Z"
+    },
+    {
+      "id": "prof-cons-1",
+      "user_id": "usr-consumer-1",
+      "full_name": "Jordan Lee",
+      "occupation": "Independent Technical Consultant",
+      "location": "Berlin, Germany",
+      "phone": "+49 30 9876543",
+      "interest_areas": [
+        "Design Tokens",
+        "API Architecture",
+        "Executive Mentorship"
+      ],
+      "created_at": "2026-11-05T20:36:35.506Z",
+      "updated_at": "2026-11-05T20:36:35.506Z"
+    }
+  ],
+  "opportunities": [
+    {
+      "id": "opp-1",
+      "company_id": "usr-company-1",
+      "title": "Distributed Systems & Cloud Architecture Fellow",
+      "company_name": "Aethel Technology Labs",
+      "location": "Zurich, Switzerland (Hybrid)",
+      "type": "Internship",
+      "category": "Software Engineering",
+      "compensation": "€4,200 / month",
+      "duration": "6 Months (Summer / Autumn)",
+      "description": "Join our Core Infrastructure engineering group developing high-throughput telemetry pipelines and event streaming engines. You will work side-by-side with principal staff engineers architecting low-latency microservices.",
+      "requirements": [
+        "Enrolled in or recent graduate of Computer Science, Software Engineering, or equivalent",
+        "Proficiency in Go, Rust, or modern TypeScript/Node.js",
+        "Foundational understanding of network protocols, concurrency primitives, and relational databases",
+        "Demonstrated portfolio or open-source contributions"
+      ],
+      "skills": [
+        "TypeScript",
+        "Go",
+        "Distributed Databases",
+        "Docker",
+        "REST / gRPC"
+      ],
+      "is_remote": true,
+      "status": "active",
+      "posted_date": "March 18, 2026",
+      "application_deadline": "May 30, 2026",
+      "created_at": "2026-11-05T20:36:35.506Z",
+      "updated_at": "2026-11-05T20:36:35.506Z"
+    },
+    {
+      "id": "opp-2",
+      "company_id": "usr-company-1",
+      "title": "Enterprise Design Systems Engineer",
+      "company_name": "Aethel Technology Labs",
+      "location": "Geneva, Switzerland / Remote",
+      "type": "Full-time",
+      "category": "Design & Creative",
+      "compensation": "€92,000 - €115,000 / year",
+      "duration": "Permanent Position",
+      "description": "Drive the cross-platform design token architecture and accessible UI component systems powering 14 flagship SaaS products. Bridges visual design standards with frontend engineering precision.",
+      "requirements": [
+        "3+ years building and maintaining design systems or component libraries in production",
+        "Deep expertise in modern React, Tailwind CSS / CSS variables, and accessibility (WCAG AAA)",
+        "Experience with Figma token pipelines and automated visual regression testing"
+      ],
+      "skills": [
+        "React",
+        "TypeScript",
+        "Tailwind CSS",
+        "Figma Tokens",
+        "WCAG AAA"
+      ],
+      "is_remote": true,
+      "status": "active",
+      "posted_date": "March 14, 2026",
+      "application_deadline": "June 15, 2026",
+      "created_at": "2026-11-05T20:36:35.506Z",
+      "updated_at": "2026-11-05T20:36:35.506Z"
+    },
+    {
+      "id": "opp-3",
+      "company_id": "usr-company-1",
+      "title": "AI Data Operations & Evaluation Specialist",
+      "company_name": "Aethel Technology Labs",
+      "location": "Zurich, Switzerland (On-site)",
+      "type": "Internship",
+      "category": "AI & Data Science",
+      "compensation": "€3,800 / month",
+      "duration": "4 Months",
+      "description": "Work within the Model Alignment and Grounding division to build automated evaluation benchmarks, curate domain-specific test suites, and quantify inference latency profiles.",
+      "requirements": [
+        "Background in Data Science, Statistics, Mathematics, or Computational Linguistics",
+        "Strong Python scripting with pandas, numpy, and evaluation frameworks",
+        "Familiarity with embeddings, vector search indexes, and synthetic data generation"
+      ],
+      "skills": [
+        "Python",
+        "Vector DBs",
+        "Model Evaluation",
+        "SQL",
+        "Data Pipelines"
+      ],
+      "is_remote": false,
+      "status": "active",
+      "posted_date": "March 20, 2026",
+      "application_deadline": "June 01, 2026",
+      "created_at": "2026-11-05T20:36:35.506Z",
+      "updated_at": "2026-11-05T20:36:35.506Z"
+    },
+    {
+      "id": "opp-4",
+      "company_id": "usr-company-1",
+      "title": "Full-Stack Platform Technical Lead",
+      "company_name": "Aethel Technology Labs",
+      "location": "Remote (Europe / UK timezones)",
+      "type": "Freelance",
+      "category": "Software Engineering",
+      "compensation": "€110 / hour",
+      "duration": "6-Month Initial Contract",
+      "description": "Lead the migration of a legacy monolithic enterprise portal into an event-driven decoupled architecture using Next.js / React and Node.js microservices.",
+      "requirements": [
+        "Extensive experience with high-traffic enterprise architectures",
+        "Strong command of PostgreSQL optimization, caching strategies, and OAuth security"
+      ],
+      "skills": [
+        "React",
+        "Node.js",
+        "PostgreSQL",
+        "System Architecture",
+        "Security"
+      ],
+      "is_remote": true,
+      "status": "active",
+      "posted_date": "March 22, 2026",
+      "application_deadline": "July 01, 2026",
+      "created_at": "2026-11-05T20:36:35.506Z",
+      "updated_at": "2026-11-05T20:36:35.506Z"
+    }
+  ],
+  "applications": [
+    {
+      "id": "app-1",
+      "opportunity_id": "opp-1",
+      "student_id": "usr-student-1",
+      "student_name": "Alex Rivera",
+      "student_email": "alex.rivera@asako.student",
+      "resume_url": "/api/files/alex_rivera_cv_2026.pdf",
+      "cover_note": "I have built high-throughput message streaming services and would love to contribute to Aethel Labs core infrastructure.",
+      "portfolio_links": [
+        "https://github.com/alexrivera-tech",
+        "https://alexrivera.dev"
+      ],
+      "status": "Under Review",
+      "applied_date": "March 24, 2026",
+      "updated_at": "2026-11-05T20:36:35.506Z"
+    },
+    {
+      "id": "app-2",
+      "opportunity_id": "opp-3",
+      "student_id": "usr-student-1",
+      "student_name": "Alex Rivera",
+      "student_email": "alex.rivera@asako.student",
+      "resume_url": "/api/files/alex_rivera_cv_2026.pdf",
+      "cover_note": "Demonstrated experience in model benchmarking and automated evaluation pipelines.",
+      "portfolio_links": [
+        "https://github.com/alexrivera-tech"
+      ],
+      "status": "Applied",
+      "applied_date": "March 25, 2026",
+      "updated_at": "2026-11-05T20:36:35.506Z"
+    }
+  ],
+  "saved_opportunities": [
+    {
+      "id": "saved-1",
+      "student_id": "usr-student-1",
+      "opportunity_id": "opp-2",
+      "saved_at": "2026-11-05T20:36:35.506Z"
+    },
+    {
+      "id": "saved-2",
+      "student_id": "usr-student-1",
+      "opportunity_id": "opp-4",
+      "saved_at": "2026-11-05T20:36:35.506Z"
+    }
+  ],
+  "workshops": [
+    {
+      "id": "ws-1",
+      "provider_id": "usr-provider-1",
+      "title": "High-Throughput Distributed Microservices Architecture",
+      "provider_name": "Monolith Design Practice",
+      "category": "Tech & Architecture",
+      "level": "Intermediate",
+      "format": "Hands-on Bootcamp",
+      "schedule": "Saturday & Sunday, April 11-12, 2026",
+      "duration": "16 Hours Intensive",
+      "price": "€180 (Student Fee: €45)",
+      "seats_total": 40,
+      "seats_booked": 28,
+      "instructor": {
+        "name": "Dr. Henrik Lindqvist",
+        "role": "Principal Systems Architect",
+        "affiliation": "Former Lead Engineer at European Telco Hub"
+      },
+      "overview": "Comprehensive practical training in designing resilient distributed systems, handling split-brain scenarios, event streaming with Kafka/Redpanda, and achieving p99 latency targets.",
+      "syllabus": [
+        "Part 1: CAP Theorem tradeoffs and partition tolerance in distributed state",
+        "Part 2: Idempotent message consumption and outbox patterns",
+        "Part 3: Distributed tracing with OpenTelemetry and Jaeger",
+        "Part 4: Load testing and bottleneck profiling under 100k RPS synthetic stress"
+      ],
+      "status": "published",
+      "venue_or_link": "https://meet.asako.global/ws-1-distributed",
+      "deadline": "April 08, 2026",
+      "created_at": "2026-11-05T20:36:35.506Z",
+      "updated_at": "2026-11-05T20:36:35.506Z"
+    },
+    {
+      "id": "ws-2",
+      "provider_id": "usr-provider-1",
+      "title": "Modern Design System Tokens: From Figma to Production React",
+      "provider_name": "Monolith Design Practice",
+      "category": "Design Systems",
+      "level": "Advanced",
+      "format": "Live Interactive",
+      "schedule": "Friday, April 17, 2026 · 14:00 - 19:00 CET",
+      "duration": "5 Hours",
+      "price": "€120 (Student Fee: €30)",
+      "seats_total": 50,
+      "seats_booked": 41,
+      "instructor": {
+        "name": "Elena Lindqvist",
+        "role": "Head of Design Engineering",
+        "affiliation": "Monolith Design Practice"
+      },
+      "overview": "Learn the exact token architecture and semantic naming schema used to power large-scale enterprise suites with dark mode, accessibility compliance, and zero-runtime overhead.",
+      "syllabus": [
+        "Module 1: Semantic token hierarchies and alias tiering",
+        "Module 2: Figma Variables sync via GitHub Actions CI/CD",
+        "Module 3: Accessible color contrast automation and high-contrast modes",
+        "Module 4: Multi-brand theming in Tailwind CSS v4 and React 19"
+      ],
+      "status": "published",
+      "venue_or_link": "https://meet.asako.global/ws-2-design-tokens",
+      "deadline": "April 15, 2026",
+      "created_at": "2026-11-05T20:36:35.506Z",
+      "updated_at": "2026-11-05T20:36:35.506Z"
+    }
+  ],
+  "workshop_registrations": [
+    {
+      "id": "wsreg-1",
+      "workshop_id": "ws-1",
+      "user_id": "usr-student-1",
+      "participant_name": "Alex Rivera",
+      "participant_email": "alex.rivera@asako.student",
+      "status": "confirmed",
+      "registered_at": "2026-11-05T20:36:35.506Z"
+    }
+  ],
+  "institute_partnerships": [
+    {
+      "id": "part-1",
+      "institute_id": "usr-institute-1",
+      "institution_name": "Zurich Tech Institute",
+      "partner_company": "Aethel Technology Labs",
+      "initiative": "Joint Cloud Systems & Verifiable Architecture Capstone",
+      "students_involved": 32,
+      "status": "Active",
+      "term": "Spring 2026 Cohort",
+      "created_at": "2026-11-05T20:36:35.506Z",
+      "updated_at": "2026-11-05T20:36:35.506Z"
+    },
+    {
+      "id": "part-2",
+      "institute_id": "usr-institute-1",
+      "institution_name": "Zurich Tech Institute",
+      "partner_company": "Novartis Informatics",
+      "initiative": "Computational Proteomics & High-Throughput Screening",
+      "students_involved": 18,
+      "status": "Active",
+      "term": "Academic Year 2025/2026",
+      "created_at": "2026-11-05T20:36:35.506Z",
+      "updated_at": "2026-11-05T20:36:35.506Z"
+    }
+  ],
+  "marketplace_listings": [
+    {
+      "id": "mkt-1",
+      "creator_id": "usr-provider-1",
+      "creator_role": "provider",
+      "creator_name": "Monolith Design Practice",
+      "title": "Architectural Design Token Engine & Blueprint System",
+      "category": "Design System",
+      "price": "€140",
+      "description": "A complete multi-tier design token engine with semantic alias hierarchies, automated Figma Variables export scripts, and Tailwind CSS v4 integration modules.",
+      "specs": [
+        "Full TypeScript token generator source",
+        "Figma Community library link with 240+ verified styles",
+        "WCAG AAA accessible color scales for 12 hues",
+        "Continuous integration sync script for GitHub Actions"
+      ],
+      "deliverable_type": "Digital Archive (.zip) & GitHub Repository Access",
+      "status": "active",
+      "created_at": "2026-11-05T20:36:35.506Z",
+      "updated_at": "2026-11-05T20:36:35.506Z"
+    },
+    {
+      "id": "mkt-2",
+      "creator_id": "usr-company-1",
+      "creator_role": "company",
+      "creator_name": "Aethel Technology Labs",
+      "title": "Enterprise Event Streaming & Telemetry Starter Kit",
+      "category": "Developer Kit",
+      "price": "€220",
+      "description": "Production-tested microservices scaffold implementing outbox pattern, distributed tracing with OpenTelemetry, and containerized Docker compose harnesses.",
+      "specs": [
+        "Clean Go & Node.js service templates",
+        "Outbox and dead-letter queue processors",
+        "Prometheus metrics exporter with Grafana dashboards",
+        "Stress-test harness capable of 50k sustained RPS"
+      ],
+      "deliverable_type": "Private Repository License & Documentation",
+      "status": "active",
+      "created_at": "2026-11-05T20:36:35.506Z",
+      "updated_at": "2026-11-05T20:36:35.506Z"
+    }
+  ],
+  "marketplace_enquiries": [
+    {
+      "id": "enq-45e74983-8449-442b-ace2-b6d8630e6f91",
+      "listing_id": "mkt-1",
+      "sender_id": "usr-consumer-04b4f490-10c4-4365-8cd1-199f72276141",
+      "sender_name": "aspr@gmail.com",
+      "sender_email": "aspr@gmail.com",
+      "sender_role": "consumer",
+      "message": "Hi, I’m interested in this offering. Could you share more details?",
+      "contact_number": "",
+      "status": "new",
+      "created_at": "2026-11-06T13:53:22.749Z",
+      "updated_at": "2026-11-06T13:53:22.749Z"
+    },
+    {
+      "id": "enq-1",
+      "listing_id": "mkt-1",
+      "sender_id": "usr-consumer-1",
+      "sender_name": "Jordan Lee",
+      "sender_email": "jordan.lee@domain.com",
+      "sender_role": "consumer",
+      "message": "Does this token engine support multi-brand themes with independent dark mode hierarchies?",
+      "contact_number": "+49 30 9876543",
+      "status": "responded",
+      "created_at": "2026-11-05T20:36:35.506Z",
+      "updated_at": "2026-11-05T20:36:35.506Z"
+    }
+  ],
+  "orders_or_requests": [
+    {
+      "id": "ord-1",
+      "listing_id": "mkt-1",
+      "consumer_id": "usr-consumer-1",
+      "consumer_name": "Jordan Lee",
+      "amount": "€140",
+      "status": "delivered",
+      "deliverable_download_url": "/api/files/monolith_token_engine_v2.zip",
+      "created_at": "2026-11-05T20:36:35.506Z",
+      "updated_at": "2026-11-05T20:36:35.506Z"
+    }
+  ],
+  "notifications": [
+    {
+      "id": "notif-2d435f5a-4590-4261-86ff-a2108cc6d35d",
+      "user_id": "usr-provider-d865a667-f2b4-4b24-8be9-8f071709318e",
+      "title": "Welcome to ASAKO",
+      "message": "Your account as a provider has been created.",
+      "type": "system",
+      "is_read": false,
+      "link": "/dashboard",
+      "created_at": "2026-11-06T13:53:38.040Z"
+    },
+    {
+      "id": "notif-49f372e9-26cc-4a73-8fc7-f3be9aca21ac",
+      "user_id": "usr-provider-1",
+      "title": "New Marketplace Enquiry",
+      "message": "aspr@gmail.com enquired regarding \"Architectural Design Token Engine & Blueprint System\".",
+      "type": "enquiry_received",
+      "is_read": false,
+      "link": "/dashboard",
+      "created_at": "2026-11-06T13:53:22.749Z"
+    },
+    {
+      "id": "notif-f0034b69-cb2b-4492-877c-b490d83dbea8",
+      "user_id": "usr-consumer-04b4f490-10c4-4365-8cd1-199f72276141",
+      "title": "Welcome to ASAKO",
+      "message": "Your account as a consumer has been created.",
+      "type": "system",
+      "is_read": false,
+      "link": "/dashboard",
+      "created_at": "2026-11-06T13:53:13.135Z"
+    },
+    {
+      "id": "notif-e965b572-4c3e-4a19-bbb5-d854d34725eb",
+      "user_id": "usr-institute-bca8e735-eba4-4e80-a642-7b67b6fa28f4",
+      "title": "Welcome to ASAKO",
+      "message": "Your account as a institute has been created.",
+      "type": "system",
+      "is_read": false,
+      "link": "/dashboard",
+      "created_at": "2026-11-06T13:52:34.295Z"
+    },
+    {
+      "id": "notif-00ab8a68-8a55-45c7-9ecf-119f861b15df",
+      "user_id": "usr-company-7cbd651d-d9cf-4337-85bc-3b72f2f9dd30",
+      "title": "Welcome to ASAKO",
+      "message": "Your account as a company has been created.",
+      "type": "system",
+      "is_read": false,
+      "link": "/dashboard",
+      "created_at": "2026-11-06T13:51:31.034Z"
+    },
+    {
+      "id": "notif-36ab4107-eb93-4b76-a0a7-8afdad29081b",
+      "user_id": "usr-student-14a0ead1-708e-453a-a9c0-e1d86569dd3c",
+      "title": "Welcome to ASAKO",
+      "message": "Your account as a student has been created.",
+      "type": "system",
+      "is_read": false,
+      "link": "/dashboard",
+      "created_at": "2026-11-06T13:50:25.336Z"
+    },
+    {
+      "id": "notif-1",
+      "user_id": "usr-student-1",
+      "title": "Application Received",
+      "message": "Your application for Distributed Systems Fellow at Aethel Labs is Under Review.",
+      "type": "application_status",
+      "is_read": false,
+      "link": "/opportunities",
+      "created_at": "2026-11-05T20:36:35.506Z"
+    },
+    {
+      "id": "notif-2",
+      "user_id": "usr-student-1",
+      "title": "Masterclass Enrolled",
+      "message": "Your seat in High-Throughput Distributed Microservices has been confirmed.",
+      "type": "workshop_alert",
+      "is_read": true,
+      "link": "/workshops",
+      "created_at": "2026-11-05T20:36:35.506Z"
+    },
+    {
+      "id": "notif-3",
+      "user_id": "usr-company-1",
+      "title": "New Candidate Applied",
+      "message": "Alex Rivera submitted an application for Distributed Systems & Cloud Architecture Fellow.",
+      "type": "application_status",
+      "is_read": false,
+      "link": "/dashboard",
+      "created_at": "2026-11-05T20:36:35.506Z"
+    }
+  ],
+  "verification_requests": [
+    {
+      "id": "ver-f30fa0a3-a8d1-4ce3-a93f-2f807e522d35",
+      "user_id": "usr-provider-d865a667-f2b4-4b24-8be9-8f071709318e",
+      "role": "provider",
+      "entity_name": "prmitr",
+      "documents_info": [],
+      "status": "pending",
+      "created_at": "2026-11-06T13:53:38.040Z"
+    },
+    {
+      "id": "ver-b756aa41-e1a5-4669-bc13-6cfbc693e31d",
+      "user_id": "usr-institute-bca8e735-eba4-4e80-a642-7b67b6fa28f4",
+      "role": "institute",
+      "entity_name": "prmitr",
+      "documents_info": [],
+      "status": "pending",
+      "created_at": "2026-11-06T13:52:34.295Z"
+    },
+    {
+      "id": "ver-5561369a-4df6-4d08-bed4-146fe54df081",
+      "user_id": "usr-company-7cbd651d-d9cf-4337-85bc-3b72f2f9dd30",
+      "role": "company",
+      "entity_name": "prmitr",
+      "documents_info": [],
+      "status": "pending",
+      "created_at": "2026-11-06T13:51:31.034Z"
+    },
+    {
+      "id": "ver-1",
+      "user_id": "usr-institute-1",
+      "role": "institute",
+      "entity_name": "Zurich Tech Institute",
+      "documents_info": [
+        "Swiss Bologna Charter Accreditation #CH-88219",
+        "Authorized Rector Delegation Letter"
+      ],
+      "status": "approved",
+      "reviewed_by": "usr-admin-1",
+      "review_notes": "All university credentials verified with the Swiss Department of Education.",
+      "created_at": "2026-11-05T20:36:35.506Z",
+      "reviewed_at": "2026-11-05T20:36:35.506Z"
+    },
+    {
+      "id": "ver-2",
+      "user_id": "usr-company-1",
+      "role": "company",
+      "entity_name": "Aethel Technology Labs",
+      "documents_info": [
+        "Swiss Commercial Register Excerpt CHE-419.822.019"
+      ],
+      "status": "approved",
+      "reviewed_by": "usr-admin-1",
+      "review_notes": "Commercial enterprise registration validated.",
+      "created_at": "2026-11-05T20:36:35.506Z",
+      "reviewed_at": "2026-11-05T20:36:35.506Z"
+    }
+  ],
+  "audit_logs": [
+    {
+      "id": "log-1",
+      "admin_user_id": "usr-admin-1",
+      "admin_email": "admin@asako.global",
+      "action": "VERIFY_ENTITY",
+      "target_type": "institute_profile",
+      "target_id": "prof-inst-1",
+      "details": {
+        "entity": "Zurich Tech Institute",
+        "status": "approved"
+      },
+      "ip_address": "127.0.0.1",
+      "created_at": "2026-11-05T20:36:35.506Z"
+    }
+  ]
+}
