@@ -1,3 +1,4 @@
+
 import 'dotenv/config';
 import express, { Request, Response, NextFunction } from 'express';
 import cors from 'cors';
@@ -8,7 +9,7 @@ import { createServer as createViteServer } from 'vite';
 import { requireAuth, AuthRequest } from './server/middleware/auth';
 import { db } from './server/db/database';
 
-// Import Route Handlers
+// Route handlers
 import authRouter from './server/routes/auth.routes';
 import studentsRouter from './server/routes/students.routes';
 import companiesRouter from './server/routes/companies.routes';
@@ -23,19 +24,37 @@ import adminRouter from './server/routes/admin.routes';
 import uploadsRouter from './server/routes/uploads.routes';
 
 const app = express();
-const PORT = process.env.PORT || 3000;
+const PORT = Number(process.env.PORT) || 3000;
 const isProduction = process.env.NODE_ENV === 'production';
+
+// Shared upload storage configuration
+const UPLOADS_DIR = path.resolve(
+  process.env.ASAKO_UPLOADS_DIR || path.join(process.cwd(), 'uploads')
+);
+
+if (!fs.existsSync(UPLOADS_DIR)) {
+  fs.mkdirSync(UPLOADS_DIR, { recursive: true });
+}
+
+// CORS configuration
 const allowedOrigins = new Set(
   [
     process.env.APP_URL,
     ...(process.env.CORS_ORIGINS || '').split(','),
-    ...(isProduction ? [] : ['http://localhost:3000', 'http://127.0.0.1:3000', 'http://localhost:5173', 'http://127.0.0.1:5173']),
+    ...(isProduction
+      ? []
+      : [
+          'http://localhost:3000',
+          'http://127.0.0.1:3000',
+          'http://localhost:5173',
+          'http://127.0.0.1:5173',
+        ]),
   ]
     .map((origin) => origin?.trim().replace(/\/$/, ''))
     .filter((origin): origin is string => Boolean(origin))
 );
 
-// Basic Middleware
+// Basic middleware
 app.use(
   cors({
     origin: (origin, callback) => {
@@ -43,11 +62,13 @@ app.use(
         callback(null, true);
         return;
       }
+
       callback(new Error('Origin is not allowed by CORS.'));
     },
     credentials: true,
   })
 );
+
 app.use((_, res, next) => {
   res.setHeader('X-Content-Type-Options', 'nosniff');
   res.setHeader('X-Frame-Options', 'DENY');
@@ -55,11 +76,12 @@ app.use((_, res, next) => {
   res.setHeader('Cross-Origin-Resource-Policy', 'same-site');
   next();
 });
+
 app.use(express.json({ limit: '1mb' }));
 app.use(express.urlencoded({ extended: true, limit: '1mb' }));
 app.use(cookieParser());
 
-// Health Check
+// Health check
 app.get('/api/health', (_req: Request, res: Response) => {
   res.json({
     status: 'online',
@@ -69,7 +91,7 @@ app.get('/api/health', (_req: Request, res: Response) => {
   });
 });
 
-// Mount API Modules
+// API routes
 app.use('/api/auth', authRouter);
 app.use('/api/students', studentsRouter);
 app.use('/api/companies', companiesRouter);
@@ -83,72 +105,120 @@ app.use('/api/notifications', notificationsRouter);
 app.use('/api/admin', adminRouter);
 app.use('/api/uploads', uploadsRouter);
 
-// Protected File Serving Endpoint
-const UPLOADS_DIR = path.resolve(process.cwd(), 'uploads');
-if (!fs.existsSync(UPLOADS_DIR)) {
-  fs.mkdirSync(UPLOADS_DIR, { recursive: true });
-}
+// Protected resume file serving
+app.get(
+  '/api/files/:filename',
+  requireAuth,
+  (req: AuthRequest, res: Response) => {
+    const safeFilename = path.basename(req.params.filename);
+    const filePath = path.join(UPLOADS_DIR, safeFilename);
 
-app.get('/api/files/:filename', requireAuth, (req: AuthRequest, res: Response) => {
-  const safeFilename = path.basename(req.params.filename);
-  const filePath = path.join(UPLOADS_DIR, safeFilename);
+    const expectedUrl = `/api/files/${safeFilename}`;
 
-  const isOwnResume = db.findOne(
-    'student_profiles',
-    (profile) => profile.user_id === req.user!.id && profile.resume_url === `/api/files/${safeFilename}`
-  );
-  const isAuthorizedRecruiter =
-    req.user?.role === 'company' &&
-    db.findMany('applications', (application) => application.resume_url === `/api/files/${safeFilename}`)
-      .some((application) => {
-        const opportunity = db.findById('opportunities', application.opportunity_id);
-        return opportunity?.company_id === req.user!.id;
-      });
+    const isOwnResume = db.findOne(
+      'student_profiles',
+      (profile) =>
+        profile.user_id === req.user!.id &&
+        profile.resume_url === expectedUrl
+    );
 
-  if (!isOwnResume && !isAuthorizedRecruiter) {
-    res.status(404).json({ error: 'Requested file does not exist.' });
-    return;
-  }
+    const isAuthorizedRecruiter =
+      req.user?.role === 'company' &&
+      db
+        .findMany(
+          'applications',
+          (application) => application.resume_url === expectedUrl
+        )
+        .some((application) => {
+          const opportunity = db.findById(
+            'opportunities',
+            application.opportunity_id
+          );
 
-  if (!fs.existsSync(filePath)) {
-    res.status(404).json({ error: 'Requested file does not exist.' });
-    return;
-  }
+          return opportunity?.company_id === req.user!.id;
+        });
 
-  res.download(filePath, safeFilename, (error) => {
-    if (error && !res.headersSent) {
-      const status = 'statusCode' in error && typeof error.statusCode === 'number' ? error.statusCode : 500;
-      res.status(status).json({ error: 'Unable to retrieve the requested file.' });
+    if (!isOwnResume && !isAuthorizedRecruiter) {
+      res.status(404).json({ error: 'Requested file does not exist.' });
+      return;
     }
-  });
-});
 
+    if (!fs.existsSync(filePath)) {
+      res.status(404).json({ error: 'Requested file does not exist.' });
+      return;
+    }
+
+    res.download(filePath, safeFilename, (error) => {
+      if (error && !res.headersSent) {
+        const status =
+          'statusCode' in error && typeof error.statusCode === 'number'
+            ? error.statusCode
+            : 500;
+
+        res.status(status).json({
+          error: 'Unable to retrieve the requested file.',
+        });
+      }
+    });
+  }
+);
+
+// API error handler
+app.use(
+  '/api',
+  (
+    err: unknown,
+    req: Request,
+    res: Response,
+    _next: NextFunction
+  ) => {
+    console.error('[API Error]', err);
+
+    const errorObject =
+      typeof err === 'object' && err !== null ? err : null;
+
+    const errorStatus =
+      errorObject &&
+      'status' in errorObject &&
+      typeof errorObject.status === 'number'
+        ? errorObject.status
+        : undefined;
+
+    const errorCode =
+      errorObject &&
+      'code' in errorObject &&
+      typeof errorObject.code === 'string'
+        ? errorObject.code
+        : undefined;
+
+    const status =
+      errorCode === 'LIMIT_FILE_SIZE'
+        ? 413
+        : req.path.startsWith('/uploads/') && errorStatus === undefined
+          ? 400
+          : err instanceof Error &&
+              err.message === 'Origin is not allowed by CORS.'
+            ? 403
+            : errorStatus || 500;
+
+    const message =
+      err instanceof Error
+        ? err.message
+        : 'Internal server error occurred.';
+
+    res.status(status).json({
+      error:
+        status >= 500
+          ? 'Internal server error occurred.'
+          : message,
+    });
+  }
+);
+
+// API 404 handler
 app.use('/api', (req: Request, res: Response) => {
-  res.status(404).json({ error: `API endpoint not found: ${req.method} ${req.path}` });
-});
-
-// Error handling middleware for API routes
-app.use('/api', (err: unknown, _req: Request, res: Response, _next: NextFunction) => {
-  console.error('[API Error]', err);
-  const errorObject = typeof err === 'object' && err !== null ? err : null;
-  const errorStatus =
-    errorObject && 'status' in errorObject && typeof errorObject.status === 'number'
-      ? errorObject.status
-      : undefined;
-  const errorCode =
-    errorObject && 'code' in errorObject && typeof errorObject.code === 'string'
-      ? errorObject.code
-      : undefined;
-  const status = errorCode === 'LIMIT_FILE_SIZE'
-    ? 413
-    : _req.path.startsWith('/uploads/') && errorStatus === undefined
-      ? 400
-      : err instanceof Error && err.message === 'Origin is not allowed by CORS.'
-        ? 403
-        : errorStatus || 500;
-  const message = err instanceof Error ? err.message : 'Internal server error occurred.';
-  res.status(status).json({
-    error: status >= 500 ? 'Internal server error occurred.' : message,
+  res.status(404).json({
+    error: `API endpoint not found: ${req.method} ${req.path}`,
   });
 });
 
@@ -159,20 +229,18 @@ async function startServer() {
       server: { middlewareMode: true },
       appType: 'spa',
     });
+
     app.use(vite.middlewares);
-    console.log('[ASAKO] Dev server configured with Vite middlewares.');
+
+    console.log('[ASAKO] Development Vite middleware enabled.');
   } else {
-    // Production mode: serve built assets from dist
-    const distPath = path.resolve(process.cwd(), 'dist');
-    app.use(express.static(distPath));
-    app.get('*', (_req: Request, res: Response) => {
-      res.sendFile(path.join(distPath, 'index.html'));
-    });
-    console.log('[ASAKO] Production static serving enabled from dist.');
+    // Production: backend API only. Frontend is hosted on Vercel.
+    console.log('[ASAKO] Production backend mode enabled.');
   }
 
-  app.listen(PORT, () => {
-    console.log(`[ASAKO Platform Backend] Server running on http://localhost:${PORT}`);
+  app.listen(PORT, '0.0.0.0', () => {
+    console.log(`[ASAKO Backend] Server listening on port ${PORT}`);
+    console.log('[ASAKO] Upload storage configured.');
   });
 }
 
