@@ -5,8 +5,8 @@ import { serializeApplication, serializeOpportunity } from '../lib/serializers';
 
 const router = Router();
 
-// GET /api/opportunities (Authenticated Discovery with Search & Filters)
-router.get('/', requireAuth, (req: Request, res: Response) => {
+// GET /api/opportunities (Public discovery with Search & Filters)
+router.get('/', (req: Request, res: Response) => {
   const { search, category, type, isRemote } = req.query;
 
   let results = db.findMany('opportunities', (o) => o.status === 'active');
@@ -49,7 +49,7 @@ router.get('/', requireAuth, (req: Request, res: Response) => {
 });
 
 // GET /api/opportunities/:id
-router.get('/:id', requireAuth, (req: Request, res: Response) => {
+router.get('/:id', (req: Request, res: Response) => {
   const opp = db.findById('opportunities', req.params.id);
   if (!opp || opp.status !== 'active') {
     res.status(404).json({ error: 'Opportunity not found.' });

@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { Workshop } from '../types/asako';
+import React, { useEffect, useState } from 'react';
+import { UserRole, Workshop } from '../types/asako';
 import { AlertCircle, Calendar, Check, Clock, Sparkles, User, Users, X } from 'lucide-react';
 import { getWorkshopVisual } from '../data/workshopVisuals';
 
@@ -8,6 +8,8 @@ interface WorkshopModalProps {
   onClose: () => void;
   onEnrollSuccess: (workshop: Workshop) => Promise<void>;
   isEnrolled?: boolean;
+  isLoggedIn: boolean;
+  onOpenAuth: (role?: UserRole) => void;
 }
 
 export const WorkshopModal: React.FC<WorkshopModalProps> = ({
@@ -15,10 +17,17 @@ export const WorkshopModal: React.FC<WorkshopModalProps> = ({
   onClose,
   onEnrollSuccess,
   isEnrolled = false,
+  isLoggedIn,
+  onOpenAuth,
 }) => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [enrolled, setEnrolled] = useState(isEnrolled);
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
+
+  useEffect(() => {
+    setEnrolled(isEnrolled);
+    setErrorMessage(null);
+  }, [workshop?.id, isEnrolled]);
 
   if (!workshop) return null;
 
@@ -149,6 +158,21 @@ export const WorkshopModal: React.FC<WorkshopModalProps> = ({
                   <div className="text-xs text-[#475569] mt-1 leading-relaxed font-body">
                     Your seat in &ldquo;{workshop.title}&rdquo; is reserved. Calendar invites and preparation links have been issued to your email.
                   </div>
+                </div>
+              </div>
+            ) : !isLoggedIn ? (
+              <div className="space-y-4 font-body">
+                <p className="text-sm text-[#475569]">
+                  Sign in or create an account to reserve your place in this workshop.
+                </p>
+                <div className="flex justify-end">
+                  <button
+                    type="button"
+                    onClick={() => onOpenAuth('student')}
+                    className="btn-asako-primary text-xs uppercase tracking-[0.12em] py-2 px-5 cursor-pointer"
+                  >
+                    Sign in to enroll
+                  </button>
                 </div>
               </div>
             ) : (

@@ -1,9 +1,17 @@
 import React, { useState, useEffect } from 'react';
-import { MarketplaceItem } from '../../types/asako';
+import { MarketplaceItem, UserRole } from '../../types/asako';
 import { AlertCircle, Check, Search, ShoppingBag, X } from 'lucide-react';
 import { api } from '../../services/api';
 
-export const MarketplaceScreen: React.FC = () => {
+interface MarketplaceScreenProps {
+  isLoggedIn: boolean;
+  onOpenAuth: (role?: UserRole) => void;
+}
+
+export const MarketplaceScreen: React.FC<MarketplaceScreenProps> = ({
+  isLoggedIn,
+  onOpenAuth,
+}) => {
   const [itemsList, setItemsList] = useState<MarketplaceItem[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [searchQuery, setSearchQuery] = useState('');
@@ -245,36 +253,53 @@ export const MarketplaceScreen: React.FC = () => {
                 </div>
               </>
             ) : (
-              <form onSubmit={handleEnquiry} className="space-y-4 font-body">
-                <div className="space-y-1">
-                  <label htmlFor="marketplace-enquiry" className="text-xs font-semibold text-[#0F2342]">
-                    Message to {activeModalItem.creator}
-                  </label>
-                  <textarea
-                    id="marketplace-enquiry"
-                    rows={4}
-                    maxLength={5000}
-                    required
-                    value={enquiryMessage}
-                    onChange={(event) => setEnquiryMessage(event.target.value)}
-                    className="w-full border border-[#E2E8F0] bg-white px-3 py-2 text-sm text-[#202A38] focus:outline-none focus:border-[#173B70]"
-                  />
-                </div>
-                {errorMessage && (
-                  <div role="alert" className="flex items-start gap-2 border border-red-200 bg-red-50 p-3 text-xs text-red-800">
-                    <AlertCircle className="w-4 h-4 shrink-0" />
-                    <span>{errorMessage}</span>
+              !isLoggedIn ? (
+                <div className="space-y-4 font-body">
+                  <p className="text-sm text-[#475569]">
+                    Sign in or create an account to contact this marketplace creator.
+                  </p>
+                  <div className="flex justify-end">
+                    <button
+                      type="button"
+                      onClick={() => onOpenAuth('consumer')}
+                      className="btn-asako-primary text-xs uppercase tracking-[0.12em] py-2 px-5 cursor-pointer"
+                    >
+                      Sign in to enquire
+                    </button>
                   </div>
-                )}
-                <div className="flex items-center justify-end gap-3">
-                  <button type="button" onClick={() => setActiveModalItem(null)} className="btn-asako-secondary text-xs uppercase tracking-[0.12em] py-2 px-4 cursor-pointer">
-                    Cancel
-                  </button>
-                  <button type="submit" disabled={isSubmitting} className="btn-asako-primary text-xs uppercase tracking-[0.12em] py-2 px-5 cursor-pointer">
-                    {isSubmitting ? 'Sending...' : 'Send enquiry'}
-                  </button>
                 </div>
-              </form>
+              ) : (
+                <form onSubmit={handleEnquiry} className="space-y-4 font-body">
+                  <div className="space-y-1">
+                    <label htmlFor="marketplace-enquiry" className="text-xs font-semibold text-[#0F2342]">
+                      Message to {activeModalItem.creator}
+                    </label>
+                    <textarea
+                      id="marketplace-enquiry"
+                      rows={4}
+                      maxLength={5000}
+                      required
+                      value={enquiryMessage}
+                      onChange={(event) => setEnquiryMessage(event.target.value)}
+                      className="w-full border border-[#E2E8F0] bg-white px-3 py-2 text-sm text-[#202A38] focus:outline-none focus:border-[#173B70]"
+                    />
+                  </div>
+                  {errorMessage && (
+                    <div role="alert" className="flex items-start gap-2 border border-red-200 bg-red-50 p-3 text-xs text-red-800">
+                      <AlertCircle className="w-4 h-4 shrink-0" />
+                      <span>{errorMessage}</span>
+                    </div>
+                  )}
+                  <div className="flex items-center justify-end gap-3">
+                    <button type="button" onClick={() => setActiveModalItem(null)} className="btn-asako-secondary text-xs uppercase tracking-[0.12em] py-2 px-4 cursor-pointer">
+                      Cancel
+                    </button>
+                    <button type="submit" disabled={isSubmitting} className="btn-asako-primary text-xs uppercase tracking-[0.12em] py-2 px-5 cursor-pointer">
+                      {isSubmitting ? 'Sending...' : 'Send enquiry'}
+                    </button>
+                  </div>
+                </form>
+              )
             )}
           </div>
         </div>

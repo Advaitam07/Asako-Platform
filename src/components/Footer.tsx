@@ -5,9 +5,25 @@ import { AsakoLogo } from './AsakoLogo';
 interface FooterProps {
   onSelectTab: (tab: PublicTab) => void;
   onOpenAuth: (role?: UserRole) => void;
+  currentUser: {
+    isLoggedIn: boolean;
+    role: UserRole;
+    name: string;
+  };
 }
 
-export const Footer: React.FC<FooterProps> = ({ onSelectTab, onOpenAuth }) => {
+export const Footer: React.FC<FooterProps> = ({
+  onSelectTab,
+  onOpenAuth,
+  currentUser,
+}) => {
+  const roleDisplayName =
+    currentUser.role === 'admin'
+      ? 'Governance'
+      : currentUser.role === 'provider'
+        ? 'Workshop Provider'
+        : currentUser.role.charAt(0).toUpperCase() + currentUser.role.slice(1);
+
   return (
     <footer className="bg-white border-t border-[#E2E8F0] mt-24">
       <div className="max-w-7xl mx-auto px-6 lg:px-12 py-16 grid grid-cols-1 md:grid-cols-12 gap-12">
@@ -67,50 +83,69 @@ export const Footer: React.FC<FooterProps> = ({ onSelectTab, onOpenAuth }) => {
         {/* Persona Portals */}
         <div className="md:col-span-2 space-y-3 font-body">
           <div className="text-[11px] font-semibold text-[#0F2342] uppercase tracking-[0.12em] font-heading">
-            Personas
+            {currentUser.isLoggedIn ? 'Your workspace' : 'Personas'}
           </div>
-          <ul className="space-y-2 text-sm text-[#475569]">
-            <li>
+          {currentUser.isLoggedIn ? (
+            <div className="space-y-3 text-sm text-[#475569]">
+              <p>
+                Signed in as{' '}
+                <span className="font-semibold text-[#0F2342]">
+                  {currentUser.name || roleDisplayName}
+                </span>
+                <br />
+                <span className="text-xs">{roleDisplayName} workspace</span>
+              </p>
               <button
-                onClick={() => onOpenAuth('student')}
-                className="hover:text-[#173B70] transition-colors cursor-pointer text-left"
+                onClick={() => onSelectTab('dashboard')}
+                className="font-semibold text-[#173B70] hover:text-[#C9A34E] transition-colors cursor-pointer text-left"
               >
-                For Students
+                Open {roleDisplayName} Dashboard
               </button>
-            </li>
-            <li>
-              <button
-                onClick={() => onOpenAuth('institute')}
-                className="hover:text-[#173B70] transition-colors cursor-pointer text-left"
-              >
-                For Educational Institutes
-              </button>
-            </li>
-            <li>
-              <button
-                onClick={() => onOpenAuth('company')}
-                className="hover:text-[#173B70] transition-colors cursor-pointer text-left"
-              >
-                For Companies & Employers
-              </button>
-            </li>
-            <li>
-              <button
-                onClick={() => onOpenAuth('provider')}
-                className="hover:text-[#173B70] transition-colors cursor-pointer text-left"
-              >
-                For Training Providers
-              </button>
-            </li>
-            <li>
-              <button
-                onClick={() => onOpenAuth('consumer')}
-                className="hover:text-[#173B70] transition-colors cursor-pointer text-left"
-              >
-                For Individual Consumers
-              </button>
-            </li>
-          </ul>
+            </div>
+          ) : (
+            <ul className="space-y-2 text-sm text-[#475569]">
+              <li>
+                <button
+                  onClick={() => onOpenAuth('student')}
+                  className="hover:text-[#173B70] transition-colors cursor-pointer text-left"
+                >
+                  For Students
+                </button>
+              </li>
+              <li>
+                <button
+                  onClick={() => onOpenAuth('institute')}
+                  className="hover:text-[#173B70] transition-colors cursor-pointer text-left"
+                >
+                  For Educational Institutes
+                </button>
+              </li>
+              <li>
+                <button
+                  onClick={() => onOpenAuth('company')}
+                  className="hover:text-[#173B70] transition-colors cursor-pointer text-left"
+                >
+                  For Companies & Employers
+                </button>
+              </li>
+              <li>
+                <button
+                  onClick={() => onOpenAuth('provider')}
+                  className="hover:text-[#173B70] transition-colors cursor-pointer text-left"
+                >
+                  For Training Providers
+                </button>
+              </li>
+              <li>
+                <button
+                  onClick={() => onOpenAuth('consumer')}
+                  className="hover:text-[#173B70] transition-colors cursor-pointer text-left"
+                >
+                  For Individual Consumers
+                </button>
+              </li>
+            </ul>
+          )}
         </div>
 
         {/* Company & Support */}

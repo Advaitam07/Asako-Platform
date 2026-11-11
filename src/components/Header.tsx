@@ -33,8 +33,8 @@ export const Header: React.FC<HeaderProps> = ({
     { id: 'contact', label: 'Contact' },
   ];
   const visibleNavItems = currentUser.isLoggedIn
-    ? navItems
-    : navItems.filter((item) => item.id === 'home');
+    ? navItems.filter((item) => item.id !== 'home')
+    : navItems;
 
   const getRoleDisplayName = (role: UserRole) => {
     switch (role) {
@@ -52,39 +52,49 @@ export const Header: React.FC<HeaderProps> = ({
         return 'Governance';
     }
   };
+  const roleDisplayName = getRoleDisplayName(currentUser.role);
 
   return (
     <header className="sticky top-0 z-40 bg-white border-b border-[#E2E8F0]">
+      {currentUser.isLoggedIn && (
+        <div className="bg-[#0F2342] text-white">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 py-2 flex items-center justify-between gap-3 text-[10px] font-semibold uppercase tracking-[0.12em]">
+            <span>ASAKO Ecosystem</span>
+            <span className="text-[#E7C777]">{roleDisplayName} Portal</span>
+          </div>
+        </div>
+      )}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 flex items-center justify-between gap-3 sm:gap-8 h-20">
         {/* Zone 1: Single text brand wordmark */}
         <button
-          onClick={() => onSelectTab('home')}
+          onClick={() => onSelectTab(currentUser.isLoggedIn ? 'dashboard' : 'home')}
           className="cursor-pointer text-left focus:outline-none"
         >
           <AsakoLogo size="md" showTagline={true} />
         </button>
 
-        {/* Zone 2: 5-6 clean single-line navigation links */}
-        {currentUser.isLoggedIn && (
-          <nav className="hidden lg:flex items-center gap-7 text-[13px] font-semibold text-[#475569] font-heading">
-            {visibleNavItems.map((item) => {
-              const isActive = currentTab === item.id;
-              return (
-                <button
-                  key={item.id}
-                  onClick={() => onSelectTab(item.id)}
-                  className={`whitespace-nowrap shrink-0 pb-1 border-b-2 transition-all cursor-pointer ${
-                    isActive
-                      ? 'border-[#173B70] text-[#173B70]'
-                      : 'border-transparent hover:text-[#173B70] hover:border-[#E2E8F0]'
-                  }`}
-                >
-                  {item.label}
-                </button>
-              );
-            })}
-          </nav>
-        )}
+        <nav
+          className="hidden xl:flex items-center gap-5 text-[13px] font-semibold text-[#475569] font-heading"
+          aria-label="Main navigation"
+        >
+          {visibleNavItems.map((item) => {
+            const isActive = currentTab === item.id;
+            return (
+              <button
+                key={item.id}
+                onClick={() => onSelectTab(item.id)}
+                aria-current={isActive ? 'page' : undefined}
+                className={`whitespace-nowrap shrink-0 pb-1 border-b-2 transition-all cursor-pointer ${
+                  isActive
+                    ? 'border-[#173B70] text-[#173B70]'
+                    : 'border-transparent hover:text-[#173B70] hover:border-[#E2E8F0]'
+                }`}
+              >
+                {item.label}
+              </button>
+            );
+          })}
+        </nav>
 
         {/* Zone 3: 1 primary action or active authenticated state */}
         <div className="flex items-center gap-3 shrink-0">
@@ -92,8 +102,8 @@ export const Header: React.FC<HeaderProps> = ({
             <div className="flex items-center gap-2 font-heading">
               <button
                 onClick={() => onSelectTab('dashboard')}
-                aria-label={`${getRoleDisplayName(currentUser.role)} Dashboard`}
-                title={`${getRoleDisplayName(currentUser.role)} Dashboard`}
+                aria-label={`${roleDisplayName} Dashboard`}
+                title={`${roleDisplayName} Dashboard`}
                 className={`px-2 sm:px-3.5 py-2 text-xs font-semibold uppercase tracking-[0.08em] transition-colors flex items-center gap-2 border cursor-pointer ${
                   currentTab === 'dashboard'
                     ? 'bg-[#173B70] text-white border-[#173B70]'
@@ -102,7 +112,7 @@ export const Header: React.FC<HeaderProps> = ({
               >
                 <User className="w-3.5 h-3.5 text-[#C9A34E]" />
                 <span className="sr-only sm:not-sr-only truncate max-w-[120px] sm:max-w-[160px]">
-                  {getRoleDisplayName(currentUser.role)} Dashboard
+                  {roleDisplayName} Dashboard
                 </span>
               </button>
 
@@ -128,32 +138,36 @@ export const Header: React.FC<HeaderProps> = ({
         </div>
       </div>
 
-      {/* Mobile nav drawer */}
-      {currentUser.isLoggedIn && (
-        <div className="lg:hidden flex flex-wrap justify-center border-t border-[#E2E8F0] px-3 py-2 bg-[#F5F7FA] gap-x-3 gap-y-1.5 text-xs font-medium text-[#475569]">
-          {visibleNavItems.map((item) => (
-            <button
-              key={item.id}
-              onClick={() => onSelectTab(item.id)}
-              className={`whitespace-nowrap py-1 px-1.5 ${
-                currentTab === item.id
-                  ? 'text-[#173B70] font-bold border-b border-[#173B70]'
-                  : ''
-              }`}
-            >
-              {item.label}
-            </button>
-          ))}
+      <nav
+        className="xl:hidden flex flex-wrap justify-center border-t border-[#E2E8F0] px-3 py-2 bg-[#F5F7FA] gap-x-3 gap-y-1.5 text-xs font-medium text-[#475569]"
+        aria-label="Main navigation"
+      >
+        {visibleNavItems.map((item) => (
+          <button
+            key={item.id}
+            onClick={() => onSelectTab(item.id)}
+            aria-current={currentTab === item.id ? 'page' : undefined}
+            className={`whitespace-nowrap py-1 px-1.5 ${
+              currentTab === item.id
+                ? 'text-[#173B70] font-bold border-b border-[#173B70]'
+                : ''
+            }`}
+          >
+            {item.label}
+          </button>
+        ))}
+        {currentUser.isLoggedIn && (
           <button
             onClick={() => onSelectTab('dashboard')}
+            aria-current={currentTab === 'dashboard' ? 'page' : undefined}
             className={`whitespace-nowrap py-1 px-1.5 text-[#C9A34E] font-bold ${
               currentTab === 'dashboard' ? 'border-b border-[#C9A34E]' : ''
             }`}
           >
-            My Dashboard
+            {roleDisplayName} Dashboard
           </button>
-        </div>
-      )}
+        )}
+      </nav>
     </header>
   );
 };

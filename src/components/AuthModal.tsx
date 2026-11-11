@@ -129,7 +129,7 @@ export const AuthModal: React.FC<AuthModalProps> = ({
 
   return (
     <div
-      className="fixed inset-0 z-50 flex items-center justify-center overflow-y-auto bg-[#071426]/70 p-3 backdrop-blur-md sm:p-6"
+      className="fixed inset-0 z-[60] flex items-center justify-center overflow-y-auto bg-[#071426]/70 p-3 backdrop-blur-md sm:p-6"
       onMouseDown={(event) => {
         if (event.target === event.currentTarget && !isLoading) onClose();
       }}

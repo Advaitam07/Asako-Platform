@@ -21,7 +21,12 @@ import { Opportunity, PublicTab, UserRole, Workshop } from './types/asako';
 import { api } from './services/api';
 
 export default function App() {
-  const [currentTab, setCurrentTab] = useState<PublicTab>('home');
+  const [currentTab, setCurrentTab] = useState<PublicTab>(() =>
+    api.getToken() ? 'dashboard' : 'home',
+  );
+  const [isCheckingSession, setIsCheckingSession] = useState(() =>
+    Boolean(api.getToken()),
+  );
 
   // Authenticated user state
   const [currentUser, setCurrentUser] = useState<{
@@ -49,7 +54,10 @@ export default function App() {
   // Check existing session on load
   useEffect(() => {
     const checkSession = async () => {
-      if (!api.getToken()) return;
+      if (!api.getToken()) {
+        setIsCheckingSession(false);
+        return;
+      }
       try {
         const res = await api.auth.getMe();
         if (res && res.user) {
@@ -59,9 +67,16 @@ export default function App() {
             name: res.user.name,
             organization: res.user.organization,
           });
+          setCurrentTab('dashboard');
+        } else {
+          api.setToken(null);
+          setCurrentTab('home');
         }
       } catch (err) {
         api.setToken(null);
+        setCurrentTab('home');
+      } finally {
+        setIsCheckingSession(false);
       }
     };
     checkSession();
@@ -73,8 +88,13 @@ export default function App() {
   };
 
   const handleSelectTab = (tab: PublicTab) => {
-    if (!currentUser.isLoggedIn && tab !== 'home') {
-      handleOpenAuth();
+    if (currentUser.isLoggedIn && tab === 'home') {
+      setCurrentTab('dashboard');
+      return;
+    }
+
+    if (!currentUser.isLoggedIn && tab === 'dashboard') {
+      handleOpenAuth('student');
       return;
     }
     setCurrentTab(tab);
@@ -122,6 +142,18 @@ export default function App() {
     }
   };
 
+  if (isCheckingSession) {
+    return (
+      <div
+        className="min-h-screen bg-[#F5F7FA] text-[#173B70] flex items-center justify-center font-body"
+        role="status"
+        aria-live="polite"
+      >
+        Restoring your ASAKO workspace…
+      </div>
+    );
+  }
+
   return (
     <div className="min-h-screen bg-white text-[#202A38] flex flex-col font-body selection:bg-[#173B70] selection:text-white">
       {/* 1. Header following the 3-zone contract */}
@@ -164,7 +196,10 @@ export default function App() {
         )}
 
         {currentTab === 'marketplace' && (
-          <MarketplaceScreen />
+          <MarketplaceScreen
+            isLoggedIn={currentUser.isLoggedIn}
+            onOpenAuth={handleOpenAuth}
+          />
         )}
 
         {currentTab === 'about' && (
@@ -226,6 +261,7 @@ export default function App() {
       <Footer
         onSelectTab={handleSelectTab}
         onOpenAuth={handleOpenAuth}
+        currentUser={currentUser}
       />
 
       {/* 5. Unified Authentication Modal */}
@@ -242,6 +278,9 @@ export default function App() {
         onClose={() => setSelectedOpportunity(null)}
         onApplySuccess={handleApplySuccess}
         isApplied={selectedOpportunity ? appliedOppIds.includes(selectedOpportunity.id) : false}
+        isLoggedIn={currentUser.isLoggedIn}
+        userRole={currentUser.role}
+        onOpenAuth={handleOpenAuth}
       />
 
       {/* 7. Workshop Detail & Enrollment Modal */}
@@ -250,6 +289,8 @@ export default function App() {
         onClose={() => setSelectedWorkshop(null)}
         onEnrollSuccess={handleEnrollSuccess}
         isEnrolled={selectedWorkshop ? enrolledWsIds.includes(selectedWorkshop.id) : false}
+        isLoggedIn={currentUser.isLoggedIn}
+        onOpenAuth={handleOpenAuth}
       />
     </div>
   );

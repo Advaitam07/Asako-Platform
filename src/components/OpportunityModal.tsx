@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { Opportunity } from '../types/asako';
+import React, { useEffect, useState } from 'react';
+import { Opportunity, UserRole } from '../types/asako';
 import { AlertCircle, Briefcase, Building, Check, Clock, Globe, MapPin, X, ArrowRight } from 'lucide-react';
 
 interface OpportunityModalProps {
@@ -7,6 +7,9 @@ interface OpportunityModalProps {
   onClose: () => void;
   onApplySuccess: (opportunity: Opportunity, details: { coverNote: string; portfolioLinks: string[] }) => Promise<void>;
   isApplied?: boolean;
+  isLoggedIn: boolean;
+  userRole: UserRole;
+  onOpenAuth: (role?: UserRole) => void;
 }
 
 export const OpportunityModal: React.FC<OpportunityModalProps> = ({
@@ -14,12 +17,22 @@ export const OpportunityModal: React.FC<OpportunityModalProps> = ({
   onClose,
   onApplySuccess,
   isApplied = false,
+  isLoggedIn,
+  userRole,
+  onOpenAuth,
 }) => {
   const [portfolioUrl, setPortfolioUrl] = useState('');
   const [coverNote, setCoverNote] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(isApplied);
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
+
+  useEffect(() => {
+    setSubmitted(isApplied);
+    setErrorMessage(null);
+    setCoverNote('');
+    setPortfolioUrl('');
+  }, [opportunity?.id, isApplied]);
 
   if (!opportunity) return null;
 
@@ -148,6 +161,25 @@ export const OpportunityModal: React.FC<OpportunityModalProps> = ({
                   </div>
                 </div>
               </div>
+            ) : !isLoggedIn ? (
+              <div className="space-y-4 font-body">
+                <p className="text-sm text-[#475569]">
+                  Sign in or create a student account to apply for this opportunity.
+                </p>
+                <div className="flex justify-end">
+                  <button
+                    type="button"
+                    onClick={() => onOpenAuth('student')}
+                    className="btn-asako-primary text-xs uppercase tracking-[0.12em] py-2 px-5 cursor-pointer"
+                  >
+                    Sign in to apply
+                  </button>
+                </div>
+              </div>
+            ) : userRole !== 'student' ? (
+              <p role="status" className="border border-[#E2E8F0] bg-[#F5F7FA] p-4 text-sm text-[#475569] font-body">
+                Opportunity applications are available to student accounts. You are signed in as {userRole}.
+              </p>
             ) : (
               <form onSubmit={handleApply} className="space-y-4 font-body">
                 <div className="text-xs font-bold uppercase tracking-[0.12em] text-[#0F2342]">

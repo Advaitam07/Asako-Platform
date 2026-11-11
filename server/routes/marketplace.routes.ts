@@ -28,8 +28,8 @@ function getCreatorName(userId: string, role: string, fallback: string): string 
   return fallback;
 }
 
-// GET /api/marketplace (Authenticated Listings Discovery)
-router.get('/', requireAuth, (req: Request, res: Response) => {
+// GET /api/marketplace (Public listing discovery)
+router.get('/', (req: Request, res: Response) => {
   const { search, category } = req.query;
 
   let results = db.findMany('marketplace_listings', (m) => m.status === 'active');
@@ -131,7 +131,7 @@ router.post(
 );
 
 // GET /api/marketplace/:id
-router.get('/:id', requireAuth, (req: Request, res: Response) => {
+router.get('/:id', (req: Request, res: Response) => {
   const item = db.findById('marketplace_listings', req.params.id);
   if (!item || item.status !== 'active') {
     res.status(404).json({ error: 'Marketplace listing not found.' });

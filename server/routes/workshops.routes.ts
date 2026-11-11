@@ -5,8 +5,8 @@ import { serializeWorkshop } from '../lib/serializers';
 
 const router = Router();
 
-// GET /api/workshops (Authenticated Discovery with Search & Filter)
-router.get('/', requireAuth, (req: Request, res: Response) => {
+// GET /api/workshops (Public discovery with Search & Filter)
+router.get('/', (req: Request, res: Response) => {
   const { search, category, level, format } = req.query;
 
   let results = db.findMany('workshops', (ws) => ws.status === 'published');
@@ -43,7 +43,7 @@ router.get('/', requireAuth, (req: Request, res: Response) => {
 });
 
 // GET /api/workshops/:id
-router.get('/:id', requireAuth, (req: Request, res: Response) => {
+router.get('/:id', (req: Request, res: Response) => {
   const ws = db.findById('workshops', req.params.id);
   if (!ws || ws.status !== 'published') {
     res.status(404).json({ error: 'Workshop not found.' });
