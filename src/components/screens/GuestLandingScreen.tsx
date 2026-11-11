@@ -88,10 +88,10 @@ export const GuestLandingScreen: React.FC<GuestLandingScreenProps> = ({ onOpenAu
     <section className="mx-auto max-w-7xl space-y-12 px-6 py-20 sm:py-24 lg:px-12">
       <div className="mx-auto max-w-2xl space-y-4 text-center">
         <div className="text-xs font-bold uppercase tracking-[0.16em] text-[#C9A34E]">One connected community</div>
-        <h2 className="text-3xl font-extrabold tracking-[-0.03em] text-[#182334] sm:text-4xl">
+        <h2 className="text-3xl font-extrabold tracking-[-0.03em] text-[#0F2342] sm:text-4xl">
           Find the pathway that fits you
         </h2>
-        <p className="text-base leading-7 text-[#647184]">
+        <p className="text-base leading-7 text-[#475569]">
           Whether you are building your career, growing a team, or supporting learners, there is a place for you at ASAKO.
         </p>
       </div>
@@ -100,7 +100,7 @@ export const GuestLandingScreen: React.FC<GuestLandingScreenProps> = ({ onOpenAu
         {pathways.map((pathway) => (
           <article
             key={pathway.role}
-            className="group overflow-hidden rounded-2xl border border-[#E5EAF0] bg-white shadow-[0_8px_30px_rgba(15,35,66,0.05)] transition-all hover:-translate-y-1 hover:shadow-[0_18px_40px_rgba(15,35,66,0.10)]"
+            className="asako-interactive-card group overflow-hidden border border-[#E2E8F0] bg-white"
           >
             <div className="relative aspect-[16/9] overflow-hidden bg-[#F5F7FA]">
               <img
@@ -116,12 +116,12 @@ export const GuestLandingScreen: React.FC<GuestLandingScreenProps> = ({ onOpenAu
             </div>
             <div className="space-y-5 p-6 sm:p-7">
               <div className="space-y-2">
-                <h3 className="text-xl font-bold text-[#182334]">{pathway.title}</h3>
-                <p className="text-sm leading-6 text-[#647184]">{pathway.description}</p>
+                <h3 className="text-xl font-bold text-[#0F2342]">{pathway.title}</h3>
+                <p className="text-sm leading-6 text-[#475569]">{pathway.description}</p>
               </div>
               <button
                 onClick={() => onOpenAuth(pathway.role)}
-                className="inline-flex items-center gap-2 text-sm font-bold text-[#2464B4] hover:text-[#173B70]"
+                className="inline-flex items-center gap-2 text-sm font-bold text-[#173B70] hover:text-[#0F2342]"
               >
                 {pathway.action}
                 <ArrowRight className="h-4 w-4" />
@@ -132,28 +132,28 @@ export const GuestLandingScreen: React.FC<GuestLandingScreenProps> = ({ onOpenAu
       </div>
     </section>
 
-    <section className="bg-[#F5F9FD] px-6 py-20 sm:py-24">
+    <section className="bg-[#F5F7FA] px-6 py-20 sm:py-24">
       <div className="mx-auto grid max-w-7xl gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:gap-20">
         <div className="space-y-5 lg:sticky lg:top-28 lg:self-start">
           <div className="text-xs font-bold uppercase tracking-[0.16em] text-[#C9A34E]">
             Frequently asked questions
           </div>
-          <h2 className="text-3xl font-extrabold tracking-[-0.03em] text-[#182334] sm:text-4xl">
+          <h2 className="text-3xl font-extrabold tracking-[-0.03em] text-[#0F2342] sm:text-4xl">
             A few things you might be wondering
           </h2>
-          <p className="max-w-md text-base leading-7 text-[#647184]">
+          <p className="max-w-md text-base leading-7 text-[#475569]">
             New to ASAKO? Here are quick answers about joining, using the portals, and what to expect.
           </p>
           <button
             onClick={() => onOpenAuth('student')}
-            className="inline-flex items-center gap-2 pt-2 text-sm font-bold text-[#2464B4] hover:text-[#173B70]"
+            className="inline-flex items-center gap-2 pt-2 text-sm font-bold text-[#173B70] hover:text-[#0F2342]"
           >
             Get started with ASAKO
             <ArrowRight className="h-4 w-4" />
           </button>
         </div>
 
-        <div className="divide-y divide-[#DFE7F0] border-y border-[#DFE7F0]">
+        <div className="divide-y divide-[#E2E8F0] border-y border-[#E2E8F0]">
           {faqs.map((faq, index) => {
             const isOpen = openFaq === index;
             const triggerId = `guest-faq-trigger-${index}`;
@@ -168,7 +168,7 @@ export const GuestLandingScreen: React.FC<GuestLandingScreenProps> = ({ onOpenAu
                     aria-expanded={isOpen}
                     aria-controls={panelId}
                     onClick={() => setOpenFaq(isOpen ? null : index)}
-                    className="flex w-full items-center justify-between gap-5 py-5 text-left text-base font-bold text-[#182334] sm:py-6 sm:text-lg"
+                    className="flex w-full items-center justify-between gap-5 py-5 text-left text-base font-bold text-[#0F2342] sm:py-6 sm:text-lg"
                   >
                     <span className="flex items-start gap-4">
                       <span className="pt-0.5 text-xs font-semibold tracking-wider text-[#9AA8BA]">
@@ -178,7 +178,7 @@ export const GuestLandingScreen: React.FC<GuestLandingScreenProps> = ({ onOpenAu
                     </span>
                     <ChevronDown
                       aria-hidden="true"
-                      className={`h-5 w-5 shrink-0 text-[#2464B4] transition-transform duration-300 ${
+                      className={`h-5 w-5 shrink-0 text-[#173B70] transition-transform duration-300 ${
                         isOpen ? 'rotate-180' : ''
                       }`}
                     />
@@ -194,7 +194,7 @@ export const GuestLandingScreen: React.FC<GuestLandingScreenProps> = ({ onOpenAu
                   }`}
                 >
                   <div className="overflow-hidden">
-                    <p className="max-w-2xl pb-6 pl-9 text-sm leading-7 text-[#647184] sm:pb-7 sm:text-base">
+                    <p className="max-w-2xl pb-6 pl-9 text-sm leading-7 text-[#475569] sm:pb-7 sm:text-base">
                       {faq.answer}
                     </p>
                   </div>

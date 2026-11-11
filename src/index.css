@@ -183,10 +183,10 @@
 }
 
 .ah {
-  --navy: #1a2a40;
-  --blue: #2563b8;
-  --gold: #c9a34e;
-  --muted: #6b7a90;
+  --navy: var(--color-asako-navy-dark);
+  --blue: var(--color-asako-navy);
+  --gold: var(--color-asako-gold);
+  --muted: #475569;
   --px: 50%;
   --py: 40%;
   position: relative;
@@ -198,7 +198,7 @@
   justify-content: center;
   overflow: hidden;
   padding: 84px 24px 100px;
-  background: #f4f7fb;
+  background: var(--color-asako-surface);
   text-align: center;
 }
 
@@ -271,8 +271,8 @@
 .ah__grid {
   z-index: -3;
   background-image:
-    linear-gradient(rgba(26, 42, 64, 0.06) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(26, 42, 64, 0.06) 1px, transparent 1px);
+    linear-gradient(rgba(15, 35, 66, 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(15, 35, 66, 0.06) 1px, transparent 1px);
   background-size: 56px 56px;
   -webkit-mask-image: radial-gradient(ellipse 60% 55% at 50% 45%, #000 20%, transparent 75%);
   mask-image: radial-gradient(ellipse 60% 55% at 50% 45%, #000 20%, transparent 75%);
@@ -293,7 +293,7 @@
 
 .ah__spot {
   z-index: -1;
-  background: radial-gradient(420px circle at var(--px) var(--py), rgba(37, 99, 184, 0.13), transparent 70%);
+  background: radial-gradient(420px circle at var(--px) var(--py), rgba(23, 59, 112, 0.13), transparent 70%);
 }
 
 .ah__card {
@@ -306,7 +306,7 @@
   border: 1px solid rgba(255, 255, 255, 0.9);
   border-radius: 18px;
   background: rgba(255, 255, 255, 0.7);
-  box-shadow: 0 18px 40px rgba(26, 42, 64, 0.12);
+  box-shadow: 0 18px 40px rgba(15, 35, 66, 0.12);
   color: var(--navy);
   font-size: 14px;
   font-weight: 700;
@@ -344,8 +344,8 @@
   color: #fff;
 }
 
-.ah__ico--blue { background: linear-gradient(135deg, #2563b8, #5b9bf0); }
-.ah__ico--navy { background: linear-gradient(135deg, #1a2a40, #3d5578); }
+.ah__ico--blue { background: linear-gradient(135deg, #173b70, #4773ad); }
+.ah__ico--navy { background: linear-gradient(135deg, #0f2342, #35527c); }
 .ah__ico--gold { background: linear-gradient(135deg, #b88d3c, #dfc078); }
 
 .ah__card--a { top: 26%; left: 6%; --bd: -1s; animation-delay: 0.25s; }
@@ -471,7 +471,7 @@
 }
 
 .ah__acc--blue > span {
-  background-image: linear-gradient(100deg, #2563b8 0%, #5b9bf0 25%, #2563b8 50%, #1e4f96 75%, #2563b8 100%);
+  background-image: linear-gradient(100deg, #173b70 0%, #4773ad 25%, #173b70 50%, #13325e 75%, #173b70 100%);
 }
 
 .ah__acc--gold > span {
@@ -542,10 +542,10 @@
   overflow: hidden;
   padding: 18px 34px;
   border: 0;
-  border-radius: 999px;
-  background: #fff;
-  box-shadow: 0 10px 30px rgba(26, 42, 64, 0.12);
-  color: var(--navy);
+  border-radius: 4px;
+  background: var(--color-asako-navy);
+  box-shadow: 0 2px 8px rgba(23, 59, 112, 0.2);
+  color: #fff;
   font: 700 16px/1 "Plus Jakarta Sans", sans-serif;
   cursor: pointer;
   transition: color 0.35s ease, box-shadow 0.35s ease;
@@ -558,15 +558,14 @@
   inset: 0;
   transform: translateY(101%);
   border-radius: inherit;
-  background: linear-gradient(100deg, #1a2a40, #2563b8);
+  background: linear-gradient(100deg, #0f2342, #173b70);
   content: "";
   transition: transform 0.45s cubic-bezier(0.2, 0.85, 0.25, 1);
 }
 
 .ah__cta:hover,
 .ah__cta:focus-visible {
-  box-shadow: 0 18px 40px rgba(37, 99, 184, 0.35);
-  color: #fff;
+  box-shadow: 0 4px 12px rgba(23, 59, 112, 0.2);
 }
 
 .ah__cta:hover::before,
@@ -577,7 +576,7 @@
 .ah__ring {
   position: absolute;
   inset: 0;
-  border-radius: 999px;
+  border-radius: 4px;
   pointer-events: none;
   animation: ah-ring 5s ease-out 2s infinite;
 }
@@ -664,29 +663,30 @@
   display: block;
   width: 100%;
   min-height: 46px;
-  border: 1px solid #e1e7ef;
-  border-radius: 0.75rem;
-  background: #fbfcfe;
+  border: 1px solid var(--color-asako-border);
+  border-radius: 4px;
+  background: var(--color-asako-surface);
   padding: 0.7rem 0.9rem;
-  color: #17263b;
+  color: var(--color-asako-navy-dark);
+  font-family: inherit;
   font-size: 0.8125rem;
   transition: border-color 180ms ease, box-shadow 180ms ease, background-color 180ms ease;
 }
 
 .auth-input::placeholder {
-  color: #a0abba;
+  color: #64748b;
 }
 
 .auth-input:hover {
-  border-color: #c4cfdd;
+  border-color: var(--color-asako-navy);
   background: #fff;
 }
 
 .auth-input:focus {
-  border-color: #3674bd;
+  border-color: var(--color-asako-navy);
   outline: none;
   background: #fff;
-  box-shadow: 0 0 0 3px rgba(36, 100, 180, 0.11);
+  box-shadow: 0 0 0 3px rgba(201, 163, 78, 0.16);
 }
 
 @keyframes auth-dialog-enter {

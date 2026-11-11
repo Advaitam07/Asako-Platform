@@ -30,7 +30,7 @@ export const AsakoHero: React.FC<AsakoHeroProps> = ({ onOpenAuth }) => {
     }
 
     type Particle = { x: number; y: number; vx: number; vy: number; radius: number; color: string };
-    const colors = ['37,99,184', '201,163,78', '26,42,64'];
+    const colors = ['23,59,112', '201,163,78', '15,35,66'];
     let particles: Particle[] = [];
     let width = 0;
     let height = 0;
@@ -83,7 +83,7 @@ export const AsakoHero: React.FC<AsakoHeroProps> = ({ onOpenAuth }) => {
           const other = particles[otherIndex];
           const distance = Math.hypot(particle.x - other.x, particle.y - other.y);
           if (distance < 165) {
-            const lineColor = (index + otherIndex) % 5 === 0 ? '201,163,78' : '37,99,184';
+            const lineColor = (index + otherIndex) % 5 === 0 ? '201,163,78' : '23,59,112';
             context.strokeStyle = `rgba(${lineColor},${((1 - distance / 165) * 0.28).toFixed(3)})`;
             context.lineWidth = 1;
             context.beginPath();

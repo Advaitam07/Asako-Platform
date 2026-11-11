@@ -135,7 +135,7 @@ export const AuthModal: React.FC<AuthModalProps> = ({
       }}
     >
       <div
-        className="auth-shell relative my-auto grid w-full max-w-5xl overflow-hidden rounded-3xl bg-white shadow-[0_32px_100px_rgba(2,12,27,0.35)] lg:min-h-[650px] lg:grid-cols-[0.88fr_1.12fr]"
+        className="auth-shell relative my-auto grid w-full max-w-5xl overflow-hidden rounded-none bg-white shadow-asako-floating lg:min-h-[650px] lg:grid-cols-[0.88fr_1.12fr]"
         role="dialog"
         aria-modal="true"
         aria-labelledby="auth-heading"
@@ -148,11 +148,11 @@ export const AuthModal: React.FC<AuthModalProps> = ({
           </div>
 
           <div className="relative z-10 space-y-6">
-            <div className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-3 py-1.5 text-[10px] font-semibold uppercase tracking-[0.16em] text-white/85">
+            <div className="inline-flex items-center gap-2 rounded border border-white/15 bg-white/10 px-3 py-1.5 text-[10px] font-semibold uppercase tracking-[0.16em] text-white/85">
               <span className="h-1.5 w-1.5 rounded-full bg-[#E3B95F]" />
               One connected community
             </div>
-            <h2 className="max-w-md text-4xl font-extrabold leading-[1.12] tracking-[-0.04em] xl:text-5xl">
+            <h2 className="max-w-md font-heading text-4xl font-extrabold leading-[1.12] tracking-[-0.04em] xl:text-5xl">
               Your next step deserves a <span className="auth-brand-accent italic">stronger start.</span>
             </h2>
             <p className="max-w-sm text-sm leading-7 text-white/70">
@@ -179,7 +179,7 @@ export const AuthModal: React.FC<AuthModalProps> = ({
             type="button"
             onClick={onClose}
             disabled={isLoading}
-            className="absolute right-4 top-4 z-10 rounded-full border border-[#E8EDF3] bg-white p-2 text-[#647184] transition hover:border-[#CCD7E4] hover:text-[#14243A] disabled:opacity-50 sm:right-6 sm:top-6"
+            className="absolute right-4 top-4 z-10 rounded border border-[#E2E8F0] bg-white p-2 text-[#475569] transition hover:border-[#173B70] hover:text-[#0F2342] disabled:opacity-50 sm:right-6 sm:top-6"
             aria-label="Close sign in"
           >
             <X className="h-4 w-4" />
@@ -187,37 +187,37 @@ export const AuthModal: React.FC<AuthModalProps> = ({
 
           <div className="mb-6 flex items-center justify-between pr-12 lg:hidden">
             <AsakoLogo size="sm" />
-            <span className="inline-flex items-center gap-1.5 text-[10px] font-semibold uppercase tracking-wider text-[#718096]">
-              <ShieldCheck className="h-3.5 w-3.5 text-[#2464B4]" />
+            <span className="inline-flex items-center gap-1.5 text-[10px] font-semibold uppercase tracking-wider text-[#475569]">
+              <ShieldCheck className="h-3.5 w-3.5 text-[#173B70]" />
               Secure access
             </span>
           </div>
 
           <div className="mx-auto flex w-full max-w-lg flex-1 flex-col justify-center py-2">
             <div className="mb-7 space-y-2 sm:mb-8">
-              <div className="mb-3 hidden items-center gap-2 text-[10px] font-semibold uppercase tracking-[0.16em] text-[#2464B4] lg:flex">
+              <div className="mb-3 hidden items-center gap-2 text-[10px] font-semibold uppercase tracking-[0.16em] text-[#173B70] lg:flex">
                 <LockKeyhole className="h-3.5 w-3.5" />
                 ASAKO ACCOUNT ACCESS
               </div>
-              <h1 id="auth-heading" className="text-3xl font-extrabold tracking-[-0.04em] text-[#17263B] sm:text-4xl">
+              <h1 id="auth-heading" className="font-heading text-3xl font-extrabold tracking-[-0.04em] text-[#0F2342] sm:text-4xl">
                 {mode === 'login' ? 'Welcome back' : 'Create your account'}
               </h1>
-              <p className="text-sm leading-6 text-[#718096]">
+              <p className="font-body text-sm leading-6 text-[#475569]">
                 {mode === 'login'
                   ? 'Sign in to continue to your ASAKO workspace.'
                   : 'Join the community and choose the pathway that fits you.'}
               </p>
             </div>
 
-            <div className="mb-6 grid grid-cols-2 rounded-xl bg-[#F2F5F9] p-1">
+            <div className="mb-6 grid grid-cols-2 rounded bg-[#F5F7FA] p-1">
               <button
                 type="button"
                 onClick={() => handleModeChange('login')}
                 aria-pressed={mode === 'login'}
-                className={`rounded-lg px-4 py-2.5 text-sm font-semibold transition-all ${
+                className={`rounded px-4 py-2.5 text-sm font-semibold transition-all ${
                   mode === 'login'
-                    ? 'bg-white text-[#17263B] shadow-[0_2px_8px_rgba(15,35,66,0.08)]'
-                    : 'text-[#718096] hover:text-[#17263B]'
+                    ? 'bg-white text-[#0F2342] shadow-asako-card'
+                    : 'text-[#475569] hover:text-[#0F2342]'
                 }`}
               >
                 Sign in
@@ -226,10 +226,10 @@ export const AuthModal: React.FC<AuthModalProps> = ({
                 type="button"
                 onClick={() => handleModeChange('register')}
                 aria-pressed={mode === 'register'}
-                className={`rounded-lg px-4 py-2.5 text-sm font-semibold transition-all ${
+                className={`rounded px-4 py-2.5 text-sm font-semibold transition-all ${
                   mode === 'register'
-                    ? 'bg-white text-[#17263B] shadow-[0_2px_8px_rgba(15,35,66,0.08)]'
-                    : 'text-[#718096] hover:text-[#17263B]'
+                    ? 'bg-white text-[#0F2342] shadow-asako-card'
+                    : 'text-[#475569] hover:text-[#0F2342]'
                 }`}
               >
                 Create account
@@ -239,7 +239,7 @@ export const AuthModal: React.FC<AuthModalProps> = ({
             {errorMessage && (
               <div
                 role="alert"
-                className="mb-5 flex items-start gap-2.5 rounded-xl border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-800"
+                className="mb-5 flex items-start gap-2.5 border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-800"
               >
                 <AlertCircle className="mt-0.5 h-4 w-4 shrink-0 text-red-600" />
                 <span>{errorMessage}</span>
@@ -250,7 +250,7 @@ export const AuthModal: React.FC<AuthModalProps> = ({
               {mode === 'register' && (
                 <>
                   <fieldset className="space-y-2">
-                    <legend className="text-xs font-semibold text-[#34445A]">Choose your account type</legend>
+                    <legend className="text-xs font-semibold text-[#0F2342]">Choose your account type</legend>
                     <div className="grid grid-cols-2 gap-2 sm:grid-cols-3">
                       {(Object.keys(roleMeta) as UserRole[])
                         .filter((role) => role !== 'admin')
@@ -263,18 +263,18 @@ export const AuthModal: React.FC<AuthModalProps> = ({
                               type="button"
                               onClick={() => setSelectedRole(role)}
                               aria-pressed={isSelected}
-                              className={`flex min-h-[74px] items-center gap-2 rounded-xl border p-2.5 text-left transition-all ${
+                              className={`flex min-h-[74px] items-center gap-2 rounded border p-2.5 text-left transition-all ${
                                 isSelected
-                                  ? 'border-[#2464B4] bg-[#F1F6FC] ring-2 ring-[#2464B4]/10'
-                                  : 'border-[#E4EAF1] bg-white hover:border-[#A9BCD3]'
+                                  ? 'border-[#173B70] bg-[#F5F7FA] ring-2 ring-[#173B70]/10'
+                                  : 'border-[#E2E8F0] bg-white hover:border-[#173B70]'
                               }`}
                             >
-                              <span className={`rounded-lg p-2 ${isSelected ? 'bg-[#2464B4] text-white' : 'bg-[#F1F4F8] text-[#51647D]'}`}>
+                              <span className={`rounded p-2 ${isSelected ? 'bg-[#173B70] text-white' : 'bg-[#F5F7FA] text-[#475569]'}`}>
                                 {meta.icon}
                               </span>
                               <span className="min-w-0">
-                                <span className="block truncate text-[11px] font-bold text-[#23344B]">{meta.label}</span>
-                                <span className="mt-0.5 block truncate text-[9px] text-[#8290A2]">{meta.subtitle}</span>
+                                <span className="block truncate text-[11px] font-bold text-[#0F2342]">{meta.label}</span>
+                                <span className="mt-0.5 block truncate text-[9px] text-[#64748B]">{meta.subtitle}</span>
                               </span>
                             </button>
                           );
@@ -284,7 +284,7 @@ export const AuthModal: React.FC<AuthModalProps> = ({
 
                   <div className="grid gap-4 sm:grid-cols-2">
                     <label className="block space-y-1.5">
-                      <span className="text-xs font-semibold text-[#34445A]">Full name</span>
+                      <span className="text-xs font-semibold text-[#0F2342]">Full name</span>
                       <input
                         type="text"
                         required
@@ -297,7 +297,7 @@ export const AuthModal: React.FC<AuthModalProps> = ({
                     </label>
                     {selectedRole !== 'consumer' && (
                       <label className="block space-y-1.5">
-                        <span className="text-xs font-semibold text-[#34445A]">{roleMeta[selectedRole].placeholderOrg}</span>
+                        <span className="text-xs font-semibold text-[#0F2342]">{roleMeta[selectedRole].placeholderOrg}</span>
                         <input
                           type="text"
                           autoComplete="organization"
@@ -313,7 +313,7 @@ export const AuthModal: React.FC<AuthModalProps> = ({
               )}
 
               <label className="block space-y-1.5">
-                <span className="text-xs font-semibold text-[#34445A]">Email address</span>
+                <span className="text-xs font-semibold text-[#0F2342]">Email address</span>
                 <input
                   type="email"
                   required
@@ -327,7 +327,7 @@ export const AuthModal: React.FC<AuthModalProps> = ({
               </label>
 
               <label className="block space-y-1.5">
-                <span className="text-xs font-semibold text-[#34445A]">Password</span>
+                <span className="text-xs font-semibold text-[#0F2342]">Password</span>
                 <span className="relative block">
                   <input
                     type={isPasswordVisible ? 'text' : 'password'}
@@ -343,7 +343,7 @@ export const AuthModal: React.FC<AuthModalProps> = ({
                   <button
                     type="button"
                     onClick={() => setIsPasswordVisible((visible) => !visible)}
-                    className="absolute inset-y-0 right-0 inline-flex items-center px-4 text-[#7B899B] hover:text-[#2464B4]"
+                    className="absolute inset-y-0 right-0 inline-flex items-center px-4 text-[#64748B] hover:text-[#173B70]"
                     aria-label={isPasswordVisible ? 'Hide password' : 'Show password'}
                     aria-pressed={isPasswordVisible}
                   >
@@ -353,8 +353,8 @@ export const AuthModal: React.FC<AuthModalProps> = ({
               </label>
 
               {mode === 'login' && (
-                <div className="flex items-center gap-2 pt-0.5 text-xs text-[#647184]">
-                  <ShieldCheck className="h-4 w-4 text-[#2464B4]" />
+                <div className="flex items-center gap-2 pt-0.5 text-xs text-[#475569]">
+                  <ShieldCheck className="h-4 w-4 text-[#173B70]" />
                   <span>Secure account access</span>
                 </div>
               )}
@@ -362,7 +362,7 @@ export const AuthModal: React.FC<AuthModalProps> = ({
               <button
                 type="submit"
                 disabled={isLoading}
-                className="auth-submit group mt-2 inline-flex w-full items-center justify-center gap-2 rounded-xl bg-[#173B70] px-5 py-3.5 text-sm font-bold text-white shadow-[0_8px_18px_rgba(23,59,112,0.18)] transition-all hover:-translate-y-0.5 hover:bg-[#102D57] hover:shadow-[0_12px_24px_rgba(23,59,112,0.24)] disabled:cursor-not-allowed disabled:opacity-60"
+                className="btn-asako-primary group mt-2 w-full gap-2 py-3.5 text-sm disabled:cursor-not-allowed disabled:opacity-60"
               >
                 {isLoading
                   ? mode === 'login' ? 'Signing you in…' : 'Creating your account…'
@@ -372,7 +372,7 @@ export const AuthModal: React.FC<AuthModalProps> = ({
             </form>
 
             <div className="mt-5 flex items-center justify-center gap-2 text-[11px] text-[#8A96A6]">
-              <ShieldCheck className="h-3.5 w-3.5 text-[#2464B4]" />
+              <ShieldCheck className="h-3.5 w-3.5 text-[#173B70]" />
               Your account is protected with secure authentication
             </div>
           </div>

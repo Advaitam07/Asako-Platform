@@ -48,12 +48,12 @@ export const StudentDashboard: React.FC<StudentDashboardProps> = ({
   }, []);
 
   return (
-    <div className="min-h-full bg-[#F7F9FC]">
-      <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-12 py-8 md:py-12 space-y-8">
+    <div className="min-h-full bg-white">
+      <div className="max-w-7xl mx-auto px-6 lg:px-12 py-12 space-y-12">
         <section className="grid grid-cols-1 lg:grid-cols-[1.55fr_0.85fr] gap-4">
-          <div className="asako-interactive-card rounded-2xl bg-[#EAF1FA] border border-[#DCE7F4] p-6 sm:p-8 md:p-10 flex flex-col justify-between gap-8">
+          <div className="border border-[#173B70] bg-white p-6 sm:p-8 md:p-10 flex flex-col justify-between gap-8">
             <div className="space-y-5">
-              <div className="inline-flex items-center gap-2 rounded-full bg-white/80 px-3 py-1.5 text-[10px] font-bold uppercase tracking-[0.14em] text-[#173B70]">
+              <div className="inline-flex items-center gap-2 border border-[#C9A34E] bg-[rgba(201,163,78,0.12)] px-3 py-1.5 text-[10px] font-bold uppercase tracking-[0.14em] text-[#0F2342]">
                 <GraduationCap className="w-4 h-4" />
                 <span>Student portal</span>
               </div>
@@ -79,14 +79,14 @@ export const StudentDashboard: React.FC<StudentDashboardProps> = ({
               </button>
               <button
                 onClick={onExploreWorkshops}
-                className="rounded-md border border-[#C9D7E8] bg-white/70 px-5 py-3 text-xs font-semibold uppercase tracking-[0.1em] text-[#173B70] hover:bg-white transition-colors cursor-pointer"
+                className="btn-asako-secondary text-xs uppercase tracking-[0.1em] py-3 px-5 cursor-pointer"
               >
                 Find a workshop
               </button>
             </div>
           </div>
 
-          <div className="asako-interactive-card rounded-2xl bg-white border border-[#E2E8F0] p-6 sm:p-7 flex flex-col justify-between gap-5">
+          <div className="border border-[#E2E8F0] bg-white p-6 sm:p-7 flex flex-col justify-between gap-5">
             <div>
               <div className="flex items-center gap-2 text-[10px] font-bold uppercase tracking-[0.14em] text-[#7B8798]">
                 <Sparkles className="w-4 h-4 text-[#C9A34E]" />
@@ -98,7 +98,7 @@ export const StudentDashboard: React.FC<StudentDashboardProps> = ({
             </div>
             <ol className="space-y-4 text-sm">
               <li className="flex items-center gap-3 text-[#173B70]">
-                <span className="w-7 h-7 rounded-full bg-[#EAF1FA] flex items-center justify-center text-xs font-bold">1</span>
+                <span className="w-7 h-7 rounded-full bg-[#F5F7FA] flex items-center justify-center text-xs font-bold">1</span>
                 <span className="font-semibold">Discover opportunities</span>
               </li>
               <li className="flex items-center gap-3 text-[#475569]">
@@ -115,13 +115,13 @@ export const StudentDashboard: React.FC<StudentDashboardProps> = ({
 
         <section aria-label="Student activity overview" className="grid grid-cols-2 lg:grid-cols-4 gap-3">
           {[
-            { label: 'Applications', value: applications.length, icon: Briefcase, accent: 'text-[#173B70]', bg: 'bg-[#EAF1FA]' },
+            { label: 'Applications', value: applications.length, icon: Briefcase, accent: 'text-[#173B70]', bg: 'bg-[#F5F7FA]' },
             { label: 'In review', value: inReviewCount, icon: Clock, accent: 'text-[#9A6B12]', bg: 'bg-[#FBF3DF]' },
             { label: 'Moving forward', value: progressingCount, icon: CheckCircle2, accent: 'text-[#2F7658]', bg: 'bg-[#E8F4EE]' },
             { label: 'Workshops', value: enrolledWorkshops.length, icon: Calendar, accent: 'text-[#6655A1]', bg: 'bg-[#F0EDFA]' },
           ].map(({ label, value, icon: Icon, accent, bg }) => (
-            <div key={label} className="asako-interactive-card rounded-xl border border-[#E2E8F0] bg-white p-4 sm:p-5 flex items-center gap-3">
-              <span className={`w-10 h-10 rounded-lg ${bg} ${accent} flex items-center justify-center shrink-0`}>
+            <div key={label} className="border border-[#E2E8F0] bg-white p-4 sm:p-5 flex items-center gap-3">
+              <span className={`w-10 h-10 ${bg} ${accent} flex items-center justify-center shrink-0`}>
                 <Icon className="w-5 h-5" />
               </span>
               <div>
@@ -176,7 +176,7 @@ export const StudentDashboard: React.FC<StudentDashboardProps> = ({
       {activeTab === 'applications' && (
         <div className="space-y-6">
           {applications.length === 0 && (
-            <div className="rounded-xl border border-dashed border-[#CBD5E1] bg-white p-8 text-sm text-[#64748B]">
+            <div className="border border-dashed border-[#CBD5E1] bg-white p-8 text-sm text-[#64748B]">
               No applications yet. Explore opportunities to find your next step.
             </div>
           )}
@@ -220,7 +220,7 @@ export const StudentDashboard: React.FC<StudentDashboardProps> = ({
       {activeTab === 'saved' && (
         <div className="space-y-6">
           {savedOpportunities.length === 0 && (
-            <div className="rounded-xl border border-dashed border-[#CBD5E1] bg-white p-8 text-sm text-[#64748B]">
+            <div className="border border-dashed border-[#CBD5E1] bg-white p-8 text-sm text-[#64748B]">
               You haven’t saved any opportunities yet.
             </div>
           )}
@@ -257,7 +257,7 @@ export const StudentDashboard: React.FC<StudentDashboardProps> = ({
       {activeTab === 'workshops' && (
         <div className="space-y-6">
           {enrolledWorkshops.length === 0 && (
-            <div className="rounded-xl border border-dashed border-[#CBD5E1] bg-white p-8 text-sm text-[#64748B]">
+            <div className="border border-dashed border-[#CBD5E1] bg-white p-8 text-sm text-[#64748B]">
               You’re not enrolled in a workshop yet.
             </div>
           )}
